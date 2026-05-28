@@ -462,38 +462,16 @@ textarea { resize: vertical; min-height: 100px; line-height: 1.7; }
       <div class="section-header">
         <span class="section-title">予約一覧</span>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn-secondary" onclick="showImportView()"><i class="ti ti-clipboard-text"></i> テキストから登録</button>
           <button class="btn-secondary" onclick="showResForm()"><i class="ti ti-plus"></i> 手動で追加</button>
         </div>
       </div>
+      <div style="background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:16px;font-size:13px;color:var(--accent);display:flex;align-items:flex-start;gap:8px;line-height:1.6">
+        <i class="ti ti-message-chatbot" style="font-size:18px;flex-shrink:0;margin-top:1px"></i>
+        <span>予約メールの登録はClaudeに貼り付けるだけ！<br>claude.aiのチャットに予約確認メールをそのまま貼り付けると、内容を整理して登録をサポートします。</span>
+      </div>
       <div id="reservations-list"></div>
     </div>
-    <div id="res-import-view" style="display:none">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button class="btn-secondary" onclick="hideImportView()"><i class="ti ti-arrow-left"></i> 戻る</button>
-        <span class="section-title" style="font-size:15px">テキストから予約を登録</span>
-      </div>
-      <div class="import-box">
-        <div class="import-title"><i class="ti ti-clipboard-text"></i> 予約確認メール・テキストを貼り付け</div>
-        <div class="import-desc">じゃらん・楽天・一休などの予約確認メール、またはメモしたテキストをそのまま貼り付けてください。AIが自動で読み取ります。</div>
-        <textarea id="import-text" style="min-height:160px" placeholder="予約番号：XXXX&#10;宿名：◯◯ホテル&#10;チェックイン：2026年XX月XX日 15:00&#10;チェックアウト：2026年XX月XX日 11:00&#10;..."></textarea>
-        <div class="btn-row">
-          <button class="btn-primary" onclick="parseReservation()"><i class="ti ti-wand"></i> AIで読み取る</button>
-          <button class="btn-secondary" onclick="document.getElementById('import-text').value=''"><i class="ti ti-x"></i> クリア</button>
-        </div>
-      </div>
-      <div id="import-loading" class="loading-spinner" style="display:none"><i class="ti ti-loader"></i>AIが読み取り中...</div>
-      <div id="import-preview" style="display:none">
-        <div class="preview-card">
-          <div class="preview-label"><i class="ti ti-check"></i> 読み取り結果 — 確認して登録</div>
-          <div id="preview-content"></div>
-          <div class="btn-row" style="margin-top:14px">
-            <button class="btn-primary" onclick="confirmImport()"><i class="ti ti-check"></i> この内容で登録する</button>
-            <button class="btn-secondary" onclick="document.getElementById('import-preview').style.display='none'"><i class="ti ti-edit"></i> やり直す</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="res-import-view" style="display:none"></div>
     <div id="res-form-view" style="display:none">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
         <button class="btn-secondary" onclick="hideResForm()"><i class="ti ti-arrow-left"></i> 戻る</button>
