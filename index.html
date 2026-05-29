@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>いなたむりつの旅日記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, doc, setDoc, onSnapshot, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBb7rTjebkdfKsOl6PVVDKpPNQFaKKy92c",
+  authDomain: "tabinikki-8908d.firebaseapp.com",
+  projectId: "tabinikki-8908d",
+  storageBucket: "tabinikki-8908d.firebasestorage.app",
+  messagingSenderId: "84577007034",
+  appId: "1:84577007034:web:8d19223c8261c7a9f4d983"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+// Firebaseへの保存
+window.fbSaveEntry = async (entry) => {
+  await setDoc(doc(db, 'entries', String(entry.id)), entry);
+};
+window.fbDeleteEntry = async (id) => {
+  await deleteDoc(doc(db, 'entries', String(id)));
+};
+window.fbSaveReservation = async (res) => {
+  await setDoc(doc(db, 'reservations', String(res.id)), res);
+};
+window.fbDeleteReservation = async (id) => {
+  await deleteDoc(doc(db, 'reservations', String(id)));
+};
+
+// リアルタイム同期
+onSnapshot(collection(db, 'entries'), (snapshot) => {
+  window._entries = snapshot.docs.map(d => d.data()).sort((a,b)=>b.date.localeCompare(a.date));
+  if(typeof renderEntries === 'function'){ entries = window._entries; renderEntries(); refreshExportSelects(); }
+});
+onSnapshot(collection(db, 'reservations'), (snapshot) => {
+  window._reservations = snapshot.docs.map(d => d.data()).sort((a,b)=>a.dateFrom.localeCompare(b.dateFrom));
+  if(typeof renderReservations === 'function'){ reservations = window._reservations; renderReservations(); }
+});
+
+window.fbReady = true;
+window.dispatchEvent(new Event('fbReady'));
+</script>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f3f1ee;
+  --border: #e8e5e0;
+  --border2: #d4d0c8;
+  --text: #1a1814;
+  --text2: #6b6660;
+  --text3: #a09b94;
+  --accent: #2d5a3d;
+  --accent-light: #e8f0eb;
+  --accent2: #8b5e3c;
+  --accent2-light: #f5ede5;
+  --amber: #b8860b;
+  --amber-light: #fef9e7;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 12px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.04);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: hidden; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+/* HEADER */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 20px;
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 56px;
+}
+.header-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px; font-weight: 600;
+  color: var(--accent);
+  display: flex; align-items: center; gap: 8px;
+}
+.header-logo i { font-size: 20px; }
+
+/* TABS */
+.tabs {
+  display: flex; gap: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  overflow-x: auto;
+  padding: 0 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  padding: 14px 16px;
+  font-size: 13px; font-weight: 500;
+  color: var(--text3);
+  cursor: pointer; border: none; background: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  display: flex; align-items: center; gap: 6px;
+  transition: all .2s;
+}
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab:hover:not(.active) { color: var(--text2); }
+
+/* CONTENT */
+.content { max-width: 640px; margin: 0 auto; padding: 16px 12px 80px; width: 100%; }
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* FORM */
+.form-group { margin-bottom: 16px; }
+.form-label { font-size: 12px; font-weight: 500; color: var(--text2); margin-bottom: 6px; display: block; letter-spacing: .03em; }
+input[type=text], input[type=date], input[type=time], input[type=number], textarea, select {
+  width: 100%; padding: 10px 13px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px; color: var(--text);
+  transition: border-color .15s, box-shadow .15s;
+  outline: none;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(45,90,61,.08);
+}
+textarea { resize: vertical; min-height: 100px; line-height: 1.7; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 360px) { .row2 { grid-template-columns: 1fr; } }
+
+/* MOOD */
+.mood-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.mood-btn {
+  padding: 7px 14px; font-size: 13px;
+  border: 1px solid var(--border); border-radius: 99px;
+  background: none; cursor: pointer; color: var(--text2);
+  transition: all .15s; font-family: 'Noto Sans JP', sans-serif;
+}
+.mood-btn.active { background: var(--accent-light); border-color: var(--accent); color: var(--accent); font-weight: 500; }
+.mood-btn:hover:not(.active) { background: var(--surface2); }
+
+/* STARS */
+.hotel-section {
+  background: var(--surface2); border-radius: var(--radius);
+  padding: 16px; margin-bottom: 16px;
+}
+.hotel-section-title { font-size: 13px; font-weight: 500; margin-bottom: 14px; color: var(--text); display: flex; align-items: center; gap: 6px; }
+.star-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.star-label { font-size: 12px; color: var(--text2); width: 58px; flex-shrink: 0; }
+.stars { display: flex; gap: 3px; }
+.star { font-size: 24px; cursor: pointer; color: var(--border2); transition: color .1s; user-select: none; line-height: 1; }
+.star.lit, .star.hover { color: var(--amber); }
+.star-val { font-size: 12px; color: var(--text3); min-width: 28px; }
+.toggle-btn {
+  background: none; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 8px 14px;
+  font-size: 13px; color: var(--text2); cursor: pointer;
+  margin-bottom: 16px; display: inline-flex; align-items: center; gap: 6px;
+  transition: all .15s; font-family: 'Noto Sans JP', sans-serif;
+}
+.toggle-btn:hover { background: var(--surface2); }
+.hotel-fields { display: none; }
+.hotel-fields.open { display: block; }
+
+/* PHOTO */
+.photo-drop {
+  border: 1.5px dashed var(--border2); border-radius: var(--radius);
+  padding: 28px; text-align: center; cursor: pointer;
+  font-size: 13px; color: var(--text3); margin-bottom: 12px;
+  transition: all .15s;
+}
+.photo-drop:hover { background: var(--surface2); border-color: var(--accent); color: var(--accent); }
+.photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+@media (max-width: 400px) { .photo-grid { grid-template-columns: repeat(3, 1fr); } }
+.photo-thumb { aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; position: relative; }
+.photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.photo-del {
+  position: absolute; top: 4px; right: 4px;
+  background: rgba(0,0,0,.55); border: none; border-radius: 50%;
+  width: 20px; height: 20px; font-size: 10px; color: #fff;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: var(--accent); color: #fff; border: none;
+  border-radius: var(--radius-sm); padding: 11px 22px;
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: opacity .15s; font-family: 'Noto Sans JP', sans-serif;
+}
+.btn-primary:hover { opacity: .88; }
+.btn-secondary {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: var(--radius-sm); padding: 10px 18px;
+  font-size: 13px; color: var(--text); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: all .15s; font-family: 'Noto Sans JP', sans-serif;
+}
+.btn-secondary:hover { background: var(--surface2); }
+.btn-row { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; width: 100%; }
+.save-msg { font-size: 13px; color: var(--accent); margin-top: 10px; display: none; font-weight: 500; }
+
+/* SECTION HEADER */
+.section-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; width: 100%; }
+.section-title { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 600; color: var(--text); }
+
+/* ENTRY CARDS */
+.entry-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px;
+  margin-bottom: 12px; cursor: pointer;
+  box-shadow: var(--shadow); transition: all .2s;
+}
+.entry-card:hover { box-shadow: var(--shadow-md); border-color: var(--border2); transform: translateY(-1px); }
+.entry-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.entry-date { font-size: 12px; color: var(--text3); }
+.entry-place { font-size: 12px; font-weight: 500; color: var(--accent2); display: flex; align-items: center; gap: 3px; }
+.entry-title { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+.entry-body { font-size: 13px; color: var(--text2); line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.tag { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 99px; background: var(--surface2); color: var(--text2); margin: 2px; border: 1px solid var(--border); }
+.hotel-mini { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 12px; color: var(--text2); background: var(--amber-light); border-radius: 6px; padding: 4px 10px; border: 1px solid #e8d98a; }
+.hotel-mini .mstars { color: var(--amber); font-size: 13px; }
+.empty-state { text-align: center; padding: 60px 20px; color: var(--text3); }
+.empty-state i { font-size: 40px; display: block; margin-bottom: 12px; color: var(--border2); }
+.empty-state p { font-size: 14px; line-height: 1.7; }
+
+/* UPCOMING LABEL */
+.list-label { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); margin: 20px 0 10px; }
+.list-label:first-child { margin-top: 0; }
+
+/* RESERVATION CARDS */
+.res-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 16px;
+  margin-bottom: 10px; cursor: pointer;
+  box-shadow: var(--shadow); transition: all .2s;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.res-card:hover { box-shadow: var(--shadow-md); border-color: var(--border2); }
+.res-icon {
+  width: 38px; height: 38px; border-radius: var(--radius-sm);
+  background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 18px; color: var(--accent);
+}
+.res-icon.flight { background: #e8f4fb; color: #1a6fa8; }
+.res-icon.train { background: var(--amber-light); color: var(--amber); }
+.res-icon.activity { background: #f0eafb; color: #6b3fa8; }
+.res-icon.other { background: var(--surface2); color: var(--text2); }
+.res-body { flex: 1; min-width: 0; }
+.res-name { font-size: 14px; font-weight: 500; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: calc(100vw - 100px); }
+.res-date-line { font-size: 12px; color: var(--text3); margin-bottom: 3px; display: flex; align-items: center; gap: 5px; }
+.res-confirm { font-size: 11px; color: var(--text3); font-family: monospace; margin-top: 3px; }
+.res-badge { display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 99px; font-weight: 500; margin-bottom: 4px; }
+.badge-hotel { background: var(--accent-light); color: var(--accent); }
+.badge-flight { background: #e8f4fb; color: #1a6fa8; }
+.badge-train { background: var(--amber-light); color: #7a5a00; }
+.badge-activity { background: #f0eafb; color: #6b3fa8; }
+.badge-other { background: var(--surface2); color: var(--text2); }
+
+/* IMPORT */
+.import-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.import-title { font-size: 14px; font-weight: 500; margin-bottom: 8px; display: flex; align-items: center; gap: 7px; color: var(--text); }
+.import-desc { font-size: 13px; color: var(--text2); margin-bottom: 14px; line-height: 1.65; }
+.preview-card {
+  background: var(--accent-light); border: 1.5px solid var(--accent);
+  border-radius: var(--radius); padding: 16px 18px; margin-top: 14px;
+}
+.preview-label { font-size: 11px; font-weight: 500; color: var(--accent); margin-bottom: 12px; text-transform: uppercase; letter-spacing: .07em; display: flex; align-items: center; gap: 6px; }
+.preview-row { display: flex; gap: 10px; margin-bottom: 7px; font-size: 13px; }
+.preview-key { color: var(--text2); width: 76px; flex-shrink: 0; }
+.preview-val { color: var(--text); font-weight: 500; }
+
+/* RES TYPE GRID */
+.res-type-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+@media (max-width: 400px) { .res-type-grid { grid-template-columns: repeat(2, 1fr); } }
+.res-type-btn {
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 10px 6px; text-align: center; cursor: pointer;
+  background: var(--surface); transition: all .15s;
+  font-size: 12px; color: var(--text2); font-family: 'Noto Sans JP', sans-serif;
+}
+.res-type-btn i { display: block; font-size: 20px; margin-bottom: 4px; color: var(--text3); }
+.res-type-btn.active { border-color: var(--accent); background: var(--accent-light); color: var(--accent); font-weight: 500; }
+.res-type-btn.active i { color: var(--accent); }
+
+/* EXPORT */
+.export-section {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px; margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.export-title { font-size: 14px; font-weight: 500; margin-bottom: 5px; display: flex; align-items: center; gap: 7px; }
+.export-desc { font-size: 12px; color: var(--text2); margin-bottom: 14px; line-height: 1.6; }
+.ai-output {
+  background: var(--surface2); border-radius: var(--radius-sm);
+  padding: 14px; font-size: 13px; line-height: 1.8;
+  white-space: pre-wrap; margin-top: 12px; color: var(--text);
+  border: 1px solid var(--border);
+}
+.generating { color: var(--text3); font-style: italic; }
+.note-checks { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.note-check-label {
+  display: flex; align-items: center; gap: 5px; font-size: 13px;
+  cursor: pointer; background: var(--surface2); padding: 5px 12px;
+  border-radius: 99px; border: 1px solid var(--border);
+  transition: all .15s;
+}
+.note-check-label:hover { border-color: var(--accent); }
+
+/* MODAL */
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.45);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 16px; z-index: 200; overflow-y: auto;
+}
+.modal {
+  background: var(--surface); border-radius: var(--radius);
+  width: 100%; max-width: 540px; padding: 24px;
+  box-shadow: var(--shadow-md);
+}
+.modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+.modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--text3); padding: 2px 6px; }
+.modal-close:hover { color: var(--text); }
+.modal-date { font-size: 12px; color: var(--text3); margin-bottom: 5px; }
+.modal-title { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 600; }
+.modal-photos { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
+.modal-photo { aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; }
+.modal-photo img { width: 100%; height: 100%; object-fit: cover; }
+.modal-body { font-size: 14px; line-height: 1.85; color: var(--text); }
+.modal-hotel { background: var(--amber-light); border-radius: var(--radius-sm); padding: 12px 14px; margin-top: 14px; border: 1px solid #e8d98a; }
+.modal-hotel-name { font-size: 13px; font-weight: 500; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.modal-star-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.modal-star-label { font-size: 12px; color: var(--text2); width: 58px; }
+.modal-stars { color: var(--amber); font-size: 14px; }
+.modal-hotel-memo { font-size: 13px; color: var(--text2); margin-top: 8px; line-height: 1.6; }
+.modal-res-detail { background: var(--surface2); border-radius: var(--radius-sm); padding: 14px; }
+.modal-res-row { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; align-items: flex-start; }
+.modal-res-label { color: var(--text2); width: 76px; flex-shrink: 0; font-size: 12px; padding-top: 1px; }
+.modal-res-val { color: var(--text); line-height: 1.5; }
+.modal-actions { margin-top: 18px; display: flex; gap: 8px; }
+
+#file-input { display: none; }
+.loading-spinner { text-align: center; padding: 30px; color: var(--text2); font-size: 13px; }
+.loading-spinner i { font-size: 28px; display: block; margin-bottom: 10px; color: var(--text3); animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-logo"><i class="ti ti-map-2"></i> いなたむりつの旅日記</div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('write')"><i class="ti ti-pencil"></i> 記録</button>
+  <button class="tab" onclick="switchTab('entries')"><i class="ti ti-book"></i> 日記</button>
+  <button class="tab" onclick="switchTab('reservations')"><i class="ti ti-calendar-check"></i> 予約</button>
+  <button class="tab" onclick="switchTab('export')"><i class="ti ti-sparkles"></i> AI出力</button>
+</div>
+
+<div class="content">
+
+  <!-- WRITE -->
+  <div id="panel-write" class="panel active">
+    <div class="row2">
+      <div class="form-group"><label class="form-label">日付</label><input type="date" id="f-date"></div>
+      <div class="form-group"><label class="form-label">場所</label><input type="text" id="f-place" placeholder="例：京都・伏見稲荷"></div>
+    </div>
+    <div class="form-group"><label class="form-label">タイトル（任意）</label><input type="text" id="f-title" placeholder="例：千本鳥居に圧倒された日"></div>
+    <div class="form-group"><label class="form-label">感想・できごと</label><textarea id="f-body" placeholder="今日の旅の感想を自由に書いてください。メモ書きでもOK！"></textarea></div>
+    <div class="form-group">
+      <label class="form-label">気分</label>
+      <div class="mood-row">
+        <button class="mood-btn" onclick="selectMood(this,'😊 最高')">😊 最高</button>
+        <button class="mood-btn" onclick="selectMood(this,'😌 穏やか')">😌 穏やか</button>
+        <button class="mood-btn" onclick="selectMood(this,'😲 驚き')">😲 驚き</button>
+        <button class="mood-btn" onclick="selectMood(this,'😴 疲れた')">😴 疲れた</button>
+        <button class="mood-btn" onclick="selectMood(this,'🥺 感動')">🥺 感動</button>
+        <button class="mood-btn" onclick="selectMood(this,'😂 爆笑')">😂 爆笑</button>
+      </div>
+    </div>
+    <div class="form-group"><label class="form-label">タグ（カンマ区切り）</label><input type="text" id="f-tags" placeholder="例：食べ歩き, 神社, 早起き"></div>
+    <div class="form-group">
+      <button class="toggle-btn" id="hotel-toggle-btn" onclick="toggleHotel()"><i class="ti ti-building"></i> ＋ ホテルの評価を追加</button>
+      <div class="hotel-fields" id="hotel-fields">
+        <div class="hotel-section">
+          <div class="hotel-section-title"><i class="ti ti-building"></i> ホテル評価</div>
+          <div class="form-group" style="margin-bottom:12px"><label class="form-label">ホテル名</label><input type="text" id="h-name" placeholder="例：よろづや"></div>
+          <div class="star-row"><span class="star-label">総合</span><div class="stars" id="s-overall"></div><span class="star-val" id="sv-overall">−</span></div>
+          <div class="star-row"><span class="star-label">清潔さ</span><div class="stars" id="s-clean"></div><span class="star-val" id="sv-clean">−</span></div>
+          <div class="star-row"><span class="star-label">立地</span><div class="stars" id="s-location"></div><span class="star-val" id="sv-location">−</span></div>
+          <div class="star-row"><span class="star-label">サービス</span><div class="stars" id="s-service"></div><span class="star-val" id="sv-service">−</span></div>
+          <div class="star-row"><span class="star-label">コスパ</span><div class="stars" id="s-value"></div><span class="star-val" id="sv-value">−</span></div>
+          <div style="margin-top:12px"><label class="form-label">ひとことメモ</label><textarea id="h-memo" style="min-height:64px" placeholder="例：朝食が最高だった。部屋からの眺めも絶景"></textarea></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">写真</label>
+      <div class="photo-drop" onclick="document.getElementById('file-input').click()">
+        <i class="ti ti-upload" style="font-size:24px;display:block;margin-bottom:8px"></i>
+        タップして写真を追加
+      </div>
+      <input type="file" id="file-input" accept="image/*" multiple onchange="addPhotos(this)">
+      <div class="photo-grid" id="photo-grid"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-primary" onclick="saveEntry()"><i class="ti ti-check"></i> 保存する</button>
+      <button class="btn-secondary" onclick="clearForm()"><i class="ti ti-x"></i> クリア</button>
+    </div>
+    <div class="save-msg" id="save-msg">✓ 保存しました！</div>
+  </div>
+
+  <!-- ENTRIES -->
+  <div id="panel-entries" class="panel">
+    <div class="section-header"><span class="section-title">日記一覧</span></div>
+    <div id="entries-list"></div>
+  </div>
+
+  <!-- RESERVATIONS -->
+  <div id="panel-reservations" class="panel">
+    <div id="res-list-view">
+      <div class="section-header">
+        <span class="section-title">予約一覧</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn-secondary" onclick="showResForm()"><i class="ti ti-plus"></i> 手動で追加</button>
+        </div>
+      </div>
+      <div style="background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:16px;font-size:13px;color:var(--accent);display:flex;align-items:flex-start;gap:8px;line-height:1.6">
+        <i class="ti ti-message-chatbot" style="font-size:18px;flex-shrink:0;margin-top:1px"></i>
+        <span>予約メールの登録はClaudeに貼り付けるだけ！<br>claude.aiのチャットに予約確認メールをそのまま貼り付けると、内容を整理して登録をサポートします。</span>
+      </div>
+      <div id="reservations-list"></div>
+    </div>
+    <div id="res-import-view" style="display:none"></div>
+    <div id="res-form-view" style="display:none">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <button class="btn-secondary" onclick="hideResForm()"><i class="ti ti-arrow-left"></i> 戻る</button>
+        <span class="section-title" style="font-size:15px" id="res-form-title">予約を手動で追加</span>
+      </div>
+      <input type="hidden" id="r-edit-id" value="">
+      <div class="form-group">
+        <label class="form-label">種別</label>
+        <div class="res-type-grid">
+          <button class="res-type-btn active" onclick="selectResType(this,'hotel')" data-type="hotel"><i class="ti ti-building"></i>宿泊</button>
+          <button class="res-type-btn" onclick="selectResType(this,'flight')" data-type="flight"><i class="ti ti-plane"></i>航空券</button>
+          <button class="res-type-btn" onclick="selectResType(this,'train')" data-type="train"><i class="ti ti-train"></i>新幹線・電車</button>
+          <button class="res-type-btn" onclick="selectResType(this,'activity')" data-type="activity"><i class="ti ti-ticket"></i>体験・施設</button>
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">名称</label><input type="text" id="r-name" placeholder="例：よろづや、東京→大阪 のぞみ"></div>
+      <div class="row2">
+        <div class="form-group"><label class="form-label">チェックイン / 出発日</label><input type="date" id="r-date-from"></div>
+        <div class="form-group"><label class="form-label">チェックアウト / 到着日</label><input type="date" id="r-date-to"></div>
+      </div>
+      <div class="form-group"><label class="form-label">時刻（任意）</label><input type="time" id="r-time"></div>
+      <div class="form-group">
+        <label class="form-label">金額（任意）</label>
+        <div style="position:relative">
+          <span style="position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:14px;pointer-events:none">¥</span>
+          <input type="number" id="r-price" placeholder="例：45000" style="padding-left:28px">
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">支払いタイミング（任意）</label><select id="r-payment"><option value="">未設定</option><option value="現地決済">現地決済</option><option value="クレジットカード決済済み">クレジットカード決済済み</option><option value="事前振込済み">事前振込済み</option><option value="当日現金払い">当日現金払い</option><option value="その他">その他</option></select></div>
+      <div class="form-group"><label class="form-label">予約番号（任意）</label><input type="text" id="r-confirm" placeholder="例：ABC-12345"></div>
+      <div class="form-group"><label class="form-label">場所・区間（任意）</label><input type="text" id="r-location" placeholder="例：群馬県渋川市伊香保町"></div>
+      <div class="form-group"><label class="form-label">メモ（任意）</label><textarea id="r-memo" style="min-height:80px" placeholder="例：チェックイン15時〜。キャンセル期限3日前"></textarea></div>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="saveReservation()"><i class="ti ti-check"></i> 保存する</button>
+        <button class="btn-secondary" onclick="hideResForm()">キャンセル</button>
+      </div>
+      <div class="save-msg" id="res-save-msg">✓ 保存しました！</div>
+    </div>
+  </div>
+
+  <!-- EXPORT -->
+  <div id="panel-export" class="panel">
+    <div class="section-header"><span class="section-title">AI出力</span></div>
+    <div class="export-section">
+      <div class="export-title"><i class="ti ti-camera"></i> Instagram投稿文</div>
+      <div class="export-desc">エントリーを選んでInstagram用キャプション＋ハッシュタグを生成します</div>
+      <select id="ig-select" style="margin-bottom:12px"><option value="">— エントリーを選択 —</option></select>
+      <button class="btn-secondary" onclick="generateIG()"><i class="ti ti-sparkles"></i> 生成する</button>
+      <div class="ai-output" id="ig-output" style="display:none"></div>
+      <button class="btn-secondary" id="ig-copy" style="display:none;margin-top:10px" onclick="copyText('ig-output')"><i class="ti ti-copy"></i> コピー</button>
+    </div>
+    <div class="export-section">
+      <div class="export-title"><i class="ti ti-notebook"></i> note記事</div>
+      <div class="export-desc">複数エントリーを選んでnote用エッセイ記事を生成します</div>
+      <div class="note-checks" id="note-checks"></div>
+      <button class="btn-secondary" onclick="generateNote()"><i class="ti ti-sparkles"></i> 記事を生成</button>
+      <div class="ai-output" id="note-output" style="display:none"></div>
+      <button class="btn-secondary" id="note-copy" style="display:none;margin-top:10px" onclick="copyText('note-output')"><i class="ti ti-copy"></i> コピー</button>
+    </div>
+    <div class="export-section">
+      <div class="export-title"><i class="ti ti-chart-bar"></i> 旅サマリー</div>
+      <div class="export-desc">全エントリーから旅の統計と振り返りコメントを生成します</div>
+      <button class="btn-secondary" onclick="generateSummary()"><i class="ti ti-sparkles"></i> サマリーを生成</button>
+      <div class="ai-output" id="sum-output" style="display:none"></div>
+      <button class="btn-secondary" id="sum-copy" style="display:none;margin-top:10px" onclick="copyText('sum-output')"><i class="ti ti-copy"></i> コピー</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="overlay" class="overlay" style="display:none" onclick="closeModal(event)">
+  <div class="modal" id="modal-box"></div>
+</div>
+
+<script>
+let entries=[], reservations=[], currentPhotos=[], selectedMood='', selectedResType='hotel';
+let parsedReservation=null;
+const hotelRatings={overall:0,clean:0,location:0,service:0,value:0};
+const starKeys=['overall','clean','location','service','value'];
+const resTypeConfig={
+  hotel:{icon:'ti-building',label:'宿泊',badge:'badge-hotel',iconClass:''},
+  flight:{icon:'ti-plane',label:'航空券',badge:'badge-flight',iconClass:'flight'},
+  train:{icon:'ti-train',label:'新幹線・電車',badge:'badge-train',iconClass:'train'},
+  activity:{icon:'ti-ticket',label:'体験・施設',badge:'badge-activity',iconClass:'activity'},
+  other:{icon:'ti-dots',label:'その他',badge:'badge-other',iconClass:'other'}
+};
+
+// STORAGE (Firebase)
+function loadAll(){ /* Firebase uses realtime listeners */ }
+function saveEntries(){ /* handled per-entry */ }
+function saveReservations(){ /* handled per-entry */ }
+
+// STARS
+function initStars(){
+  starKeys.forEach(key=>{
+    const el=document.getElementById('s-'+key);el.innerHTML='';
+    for(let i=1;i<=5;i++){
+      const s=document.createElement('span');s.className='star';s.textContent='★';
+      s.onmouseenter=()=>hoverStars(key,i);
+      s.onmouseleave=()=>renderStars(key,hotelRatings[key]);
+      s.onclick=()=>{hotelRatings[key]=i;renderStars(key,i);document.getElementById('sv-'+key).textContent=i+'/5';};
+      el.appendChild(s);
+    }
+  });
+}
+function hoverStars(key,n){document.querySelectorAll('#s-'+key+' .star').forEach((s,i)=>{s.className='star'+(i<n?' hover':'');});}
+function renderStars(key,n){document.querySelectorAll('#s-'+key+' .star').forEach((s,i)=>{s.className='star'+(i<n?' lit':'');});}
+function starsDisplay(n,max=5){return'★'.repeat(n)+'☆'.repeat(max-n);}
+
+// MOOD
+function selectMood(btn,mood){document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selectedMood=mood;}
+
+// PHOTOS
+function addPhotos(input){
+  Array.from(input.files).forEach(file=>{
+    const r=new FileReader();
+    r.onload=e=>{currentPhotos.push({data:e.target.result,file:file});renderPhotoGrid();};
+    r.readAsDataURL(file);
+  });input.value='';
+}
+function renderPhotoGrid(){
+  document.getElementById('photo-grid').innerHTML=currentPhotos.map((p,i)=>`<div class="photo-thumb"><img src="${p.data}" alt=""><button class="photo-del" onclick="removePhoto(${i})">✕</button></div>`).join('');
+}
+function removePhoto(i){currentPhotos.splice(i,1);renderPhotoGrid();}
+
+// SAVE ENTRY
+// Cloudinary写真アップロード
+const CLOUDINARY_CLOUD = 'du4m3kjjg';
+const CLOUDINARY_PRESET = 'tabinikki';
+async function uploadToCloudinary(file) {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', CLOUDINARY_PRESET);
+  const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/image/upload`, {
+    method: 'POST',
+    body: formData
+  });
+  const data = await res.json();
+  return data.secure_url;
+}
+
+async function saveEntry(){
+  const date=document.getElementById('f-date').value;
+  const place=document.getElementById('f-place').value;
+  const body=document.getElementById('f-body').value;
+  if(!date||!place||!body){alert('日付・場所・感想は必須です');return;}
+  const hotelOpen=document.getElementById('hotel-fields').classList.contains('open');
+  const hotel=hotelOpen?{name:document.getElementById('h-name').value,memo:document.getElementById('h-memo').value,ratings:{...hotelRatings}}:null;
+  const entryId = Date.now();
+  const btn = document.querySelector('.btn-primary');
+  btn.textContent='保存中...';btn.disabled=true;
+  // Upload photos to Cloudinary
+  let photoUrls = [];
+  for(let i=0;i<currentPhotos.length;i++){
+    const p=currentPhotos[i];
+    if(p.file){
+      try{
+        const url=await uploadToCloudinary(p.file);
+        photoUrls.push(url);
+      }catch(e){ photoUrls.push(p.data); } // fallback to base64
+    } else {
+      photoUrls.push(p.data);
+    }
+  }
+  const newEntry={id:entryId,date,place,title:document.getElementById('f-title').value||place,body,mood:selectedMood,tags:document.getElementById('f-tags').value.split(',').map(t=>t.trim()).filter(Boolean),photos:photoUrls,hotel};
+  entries.unshift(newEntry);
+  if(window.fbSaveEntry) window.fbSaveEntry(newEntry);
+  btn.innerHTML='<i class="ti ti-check"></i> 保存する';btn.disabled=false;
+  clearForm();
+  const m=document.getElementById('save-msg');m.style.display='block';setTimeout(()=>m.style.display='none',2000);
+  refreshExportSelects();
+}
+function clearForm(){
+  ['f-date','f-place','f-title','f-body','f-tags','h-name','h-memo'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('active'));
+  selectedMood='';currentPhotos=[];renderPhotoGrid();
+  starKeys.forEach(k=>{hotelRatings[k]=0;renderStars(k,0);document.getElementById('sv-'+k).textContent='−';});
+  if(document.getElementById('hotel-fields').classList.contains('open'))toggleHotel();
+  document.getElementById('f-date').value=new Date(Date.now()+9*60*60*1000).toISOString().split('T')[0];
+}
+function toggleHotel(){
+  const f=document.getElementById('hotel-fields'),b=document.getElementById('hotel-toggle-btn'),open=f.classList.toggle('open');
+  b.innerHTML=open?'<i class="ti ti-building"></i> − ホテル評価を閉じる':'<i class="ti ti-building"></i> ＋ ホテルの評価を追加';
+}
+
+// RENDER ENTRIES
+function renderEntries(){
+  const el=document.getElementById('entries-list');
+  if(!entries.length){el.innerHTML='<div class="empty-state"><i class="ti ti-notebook"></i><p>まだ記録がありません<br>「記録」タブから旅の思い出を追加しましょう</p></div>';return;}
+  el.innerHTML=entries.map(e=>`
+    <div class="entry-card" onclick="openEntryModal(${e.id})">
+      <div class="entry-meta">
+        <span class="entry-date">${e.date}</span>
+        <span class="entry-place"><i class="ti ti-map-pin" style="font-size:12px"></i>${e.place}</span>
+        ${e.mood?`<span style="font-size:12px">${e.mood}</span>`:''}
+      </div>
+      <div class="entry-title">${e.title}</div>
+      <div class="entry-body">${e.body}</div>
+      ${e.hotel&&e.hotel.name?`<div class="hotel-mini"><i class="ti ti-building" style="font-size:12px"></i>${e.hotel.name}<span class="mstars">${starsDisplay(e.hotel.ratings.overall)}</span></div>`:''}
+      ${e.tags.length?'<div style="margin-top:8px">'+e.tags.map(t=>`<span class="tag">${t}</span>`).join('')+'</div>':''}
+    </div>`).join('');
+}
+
+function openEntryModal(id){
+  const e=entries.find(x=>x.id===id);if(!e)return;
+  const cats=[['overall','総合'],['clean','清潔さ'],['location','立地'],['service','サービス'],['value','コスパ']];
+  const hotelHTML=e.hotel&&e.hotel.name?`
+    <div class="modal-hotel">
+      <div class="modal-hotel-name"><i class="ti ti-building"></i>${e.hotel.name}</div>
+      ${cats.map(([k,l])=>e.hotel.ratings[k]?`<div class="modal-star-row"><span class="modal-star-label">${l}</span><span class="modal-stars">${starsDisplay(e.hotel.ratings[k])}</span><span style="font-size:12px;color:#7a5a00;margin-left:4px">${e.hotel.ratings[k]}/5</span></div>`:'').join('')}
+      ${e.hotel.memo?`<div class="modal-hotel-memo">${e.hotel.memo}</div>`:''}
+    </div>`:'';
+  document.getElementById('modal-box').innerHTML=`
+    <div class="modal-header">
+      <div><div class="modal-date">${e.date} · ${e.place} ${e.mood||''}</div><div class="modal-title">${e.title}</div></div>
+      <button class="modal-close" onclick="document.getElementById('overlay').style.display='none'"><i class="ti ti-x"></i></button>
+    </div>
+    ${e.photos&&e.photos.length?`<div class="modal-photos">${e.photos.map(p=>`<div class="modal-photo"><img src="${p}" alt=""></div>`).join('')}</div>`:''}
+    <div class="modal-body">${e.body.replace(/\n/g,'<br>')}</div>
+    ${hotelHTML}
+    ${e.tags.length?'<div style="margin-top:12px">'+e.tags.map(t=>`<span class="tag">${t}</span>`).join('')+'</div>':''}
+    <div class="modal-actions"><button class="btn-secondary" style="font-size:12px" onclick="deleteEntry(${e.id})"><i class="ti ti-trash"></i> 削除</button></div>`;
+  document.getElementById('overlay').style.display='flex';
+}
+function deleteEntry(id){if(!confirm('このエントリーを削除しますか？'))return;entries=entries.filter(e=>e.id!==id);if(window.fbDeleteEntry)window.fbDeleteEntry(id);document.getElementById('overlay').style.display='none';renderEntries();refreshExportSelects();}
+
+// RESERVATIONS
+function showImportView(){document.getElementById('res-list-view').style.display='none';document.getElementById('res-import-view').style.display='block';}
+function hideImportView(){document.getElementById('res-import-view').style.display='none';document.getElementById('res-list-view').style.display='block';document.getElementById('import-preview').style.display='none';document.getElementById('import-text').value='';}
+function showResForm(){document.getElementById('res-list-view').style.display='none';document.getElementById('res-form-view').style.display='block';}
+function hideResForm(){document.getElementById('res-form-view').style.display='none';document.getElementById('res-list-view').style.display='block';}
+function selectResType(btn,type){document.querySelectorAll('.res-type-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selectedResType=type;}
+
+async function parseReservation(){
+  const text=document.getElementById('import-text').value.trim();
+  if(!text){alert('テキストを入力してください');return;}
+  document.getElementById('import-loading').style.display='block';
+  document.getElementById('import-preview').style.display='none';
+  const prompt=`以下の予約テキストから情報を抽出してJSON形式のみで返してください（説明文・マークダウン不要）：\n${text}\n\n{"type":"hotel/flight/train/activity/other","name":"名称","dateFrom":"YYYY-MM-DD","dateTo":"YYYY-MM-DD","time":"HH:MM or ''","price":数値orNull,"confirm":"予約番号","location":"場所","memo":"補足情報"}`;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,messages:[{role:'user',content:prompt}]})});
+    const d=await res.json();
+    const raw=d.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
+    parsedReservation=JSON.parse(raw);
+    renderPreview(parsedReservation);
+  }catch(e){alert('読み取りに失敗しました。テキストを確認して再試行してください。');}
+  document.getElementById('import-loading').style.display='none';
+}
+function renderPreview(r){
+  const cfg=resTypeConfig[r.type]||resTypeConfig.other;
+  const rows=[['種別',`<span class="res-badge ${cfg.badge}">${cfg.label}</span>`],['名称',r.name||'−'],['チェックイン',r.dateFrom+(r.time?' '+r.time:'')],['チェックアウト',r.dateTo&&r.dateTo!==r.dateFrom?r.dateTo:'−'],['予約番号',r.confirm||'−'],['場所',r.location||'−'],['金額',r.price?'¥'+Number(r.price).toLocaleString():'−'],['メモ',r.memo||'−']];
+  document.getElementById('preview-content').innerHTML=rows.map(([k,v])=>`<div class="preview-row"><span class="preview-key">${k}</span><span class="preview-val">${v}</span></div>`).join('');
+  document.getElementById('import-preview').style.display='block';
+}
+function confirmImport(){
+  if(!parsedReservation)return;
+  const importedRes={id:Date.now(),...parsedReservation};
+  reservations.push(importedRes);
+  reservations.sort((a,b)=>a.dateFrom.localeCompare(b.dateFrom));
+  if(window.fbSaveReservation)window.fbSaveReservation(importedRes);
+  parsedReservation=null;
+  hideImportView();renderReservations();
+  alert('✓ 予約を登録しました！');
+}
+function saveReservation(){
+  const name=document.getElementById('r-name').value,dateFrom=document.getElementById('r-date-from').value;
+  if(!name||!dateFrom){alert('名称と日付は必須です');return;}
+  const price=document.getElementById('r-price').value;
+  const editId=document.getElementById('r-edit-id').value;
+  const data={type:selectedResType,name,dateFrom,dateTo:document.getElementById('r-date-to').value,time:document.getElementById('r-time').value,price:price?parseInt(price):null,payment:document.getElementById('r-payment').value,confirm:document.getElementById('r-confirm').value,location:document.getElementById('r-location').value,memo:document.getElementById('r-memo').value};
+  if(editId){
+    const idx=reservations.findIndex(r=>r.id===parseInt(editId));
+    if(idx!==-1){reservations[idx]={...reservations[idx],...data};if(window.fbSaveReservation)window.fbSaveReservation(reservations[idx]);}
+  }else{
+    const newRes={id:Date.now(),...data};reservations.push(newRes);if(window.fbSaveReservation)window.fbSaveReservation(newRes);
+  }
+  reservations.sort((a,b)=>a.dateFrom.localeCompare(b.dateFrom));
+  const resToSave=editId?reservations.find(r=>r.id===parseInt(editId)):{...data,id:reservations[reservations.length-1]?.id||Date.now()};
+  if(window.fbSaveReservation&&resToSave)window.fbSaveReservation(resToSave);
+  ['r-name','r-date-from','r-date-to','r-time','r-price','r-confirm','r-location','r-memo','r-edit-id'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('r-payment').value='';;
+  document.querySelectorAll('.res-type-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.res-type-btn[data-type="hotel"]').classList.add('active');
+  selectedResType='hotel';
+  document.getElementById('res-form-title').textContent='予約を手動で追加';
+  const m=document.getElementById('res-save-msg');m.style.display='block';
+  setTimeout(()=>{m.style.display='none';hideResForm();renderReservations();},1200);
+}
+function editReservation(id){
+  const r=reservations.find(x=>x.id===id);if(!r)return;
+  document.getElementById('overlay').style.display='none';
+  document.getElementById('r-edit-id').value=id;
+  document.getElementById('r-name').value=r.name||'';
+  document.getElementById('r-date-from').value=r.dateFrom||'';
+  document.getElementById('r-date-to').value=r.dateTo||'';
+  document.getElementById('r-time').value=r.time||'';
+  document.getElementById('r-price').value=r.price||'';
+  document.getElementById('r-confirm').value=r.confirm||'';
+  document.getElementById('r-location').value=r.location||'';
+  document.getElementById('r-memo').value=r.memo||'';
+  document.getElementById('r-payment').value=r.payment||'';
+  document.querySelectorAll('.res-type-btn').forEach(b=>b.classList.remove('active'));
+  const typeBtn=document.querySelector(`.res-type-btn[data-type="${r.type}"]`);
+  if(typeBtn)typeBtn.classList.add('active');
+  selectedResType=r.type||'hotel';
+  document.getElementById('res-form-title').textContent='予約を編集';
+  document.getElementById('res-list-view').style.display='none';
+  document.getElementById('res-form-view').style.display='block';
+  window.scrollTo(0,0);
+}
+function renderReservations(){
+  const el=document.getElementById('reservations-list');
+  if(!reservations.length){el.innerHTML='<div class="empty-state"><i class="ti ti-calendar"></i><p>予約情報がありません<br>「テキストから登録」または「手動で追加」で登録しましょう</p></div>';return;}
+  const today=new Date().toISOString().split('T')[0];
+  const upcoming=reservations.filter(r=>r.dateFrom>=today);
+  const past=reservations.filter(r=>r.dateFrom<today);
+  let html='';
+  if(upcoming.length){html+='<div class="list-label">今後の予約</div>'+upcoming.map(resCardHTML).join('');}
+  if(past.length){html+=`<div class="list-label" style="margin-top:${upcoming.length?'24px':'0'}">過去の予約</div>`+past.map(resCardHTML).join('');}
+  el.innerHTML=html;
+}
+function resCardHTML(r){
+  const cfg=resTypeConfig[r.type]||resTypeConfig.other;
+  const dateStr=r.dateTo&&r.dateTo!==r.dateFrom?`${r.dateFrom} 〜 ${r.dateTo}`:r.dateFrom;
+  return `<div class="res-card" onclick="openResModal(${r.id})">
+    <div class="res-icon ${cfg.iconClass}"><i class="ti ${cfg.icon}"></i></div>
+    <div class="res-body">
+      <div style="display:flex;align-items:center;gap:7px;margin-bottom:6px"><span class="res-badge ${cfg.badge}">${cfg.label}</span></div>
+      <div class="res-name">${r.name}</div>
+      <div style="display:flex;align-items:baseline;gap:4px;margin:6px 0 4px">
+        <i class="ti ti-calendar" style="font-size:14px;color:var(--accent)"></i>
+        <span style="font-size:15px;font-weight:500;color:var(--text)">${dateStr}${r.time?' <span style="color:var(--text2);font-weight:400">'+r.time+'</span>':''}</span>
+      </div>
+      ${r.price?`<div style="display:flex;align-items:baseline;gap:3px;margin-bottom:4px"><i class="ti ti-coin" style="font-size:13px;color:var(--accent2)"></i><span style="font-size:17px;font-weight:600;color:var(--accent2)">¥${Number(r.price).toLocaleString()}</span></div>`:''}
+      ${r.location?`<div class="res-date-line"><i class="ti ti-map-pin" style="font-size:12px"></i>${r.location}</div>`:''}
+      ${r.payment?`<div style="font-size:11px;color:var(--text3);margin-top:2px"><i class="ti ti-credit-card" style="font-size:11px"></i> ${r.payment}</div>`:''}
+      ${r.confirm?`<div class="res-confirm">No. ${r.confirm}</div>`:''}
+    </div>
+  </div>`;
+}
+function openResModal(id){
+  const r=reservations.find(x=>x.id===id);if(!r)return;
+  const cfg=resTypeConfig[r.type]||resTypeConfig.other;
+  const dateStr=r.dateTo&&r.dateTo!==r.dateFrom?`${r.dateFrom} 〜 ${r.dateTo}`:r.dateFrom;
+  document.getElementById('modal-box').innerHTML=`
+    <div class="modal-header">
+      <div><span class="res-badge ${cfg.badge}" style="margin-bottom:8px;display:inline-block">${cfg.label}</span><div class="modal-title">${r.name}</div></div>
+      <button class="modal-close" onclick="document.getElementById('overlay').style.display='none'"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-res-detail">
+      <div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-calendar"></i> 日程</span><span class="modal-res-val">${dateStr}${r.time?' '+r.time:''}</span></div>
+      ${r.location?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-map-pin"></i> 場所</span><span class="modal-res-val">${r.location}</span></div>`:''}
+      ${r.price?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-coin"></i> 金額</span><span class="modal-res-val">¥${Number(r.price).toLocaleString()}</span></div>`:''}
+      ${r.payment?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-credit-card"></i> 支払い</span><span class="modal-res-val">${r.payment}</span></div>`:''}
+      ${r.confirm?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-hash"></i> 予約番号</span><span class="modal-res-val" style="font-family:monospace">${r.confirm}</span></div>`:''}
+      ${r.memo?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-notes"></i> メモ</span><span class="modal-res-val">${r.memo.replace(/\n/g,'<br>')}</span></div>`:''}
+    </div>
+    <div class="modal-actions">
+      <button class="btn-primary" style="font-size:13px" onclick="editReservation(${r.id})"><i class="ti ti-edit"></i> 編集</button>
+      <button class="btn-secondary" style="font-size:12px" onclick="deleteReservation(${r.id})"><i class="ti ti-trash"></i> 削除</button>
+    </div>`;
+  document.getElementById('overlay').style.display='flex';
+}
+function deleteReservation(id){if(!confirm('この予約を削除しますか？'))return;reservations=reservations.filter(r=>r.id!==id);if(window.fbDeleteReservation)window.fbDeleteReservation(id);document.getElementById('overlay').style.display='none';renderReservations();}
+function closeModal(ev){if(ev.target.id==='overlay')document.getElementById('overlay').style.display='none';}
+
+// EXPORT
+function refreshExportSelects(){
+  document.getElementById('ig-select').innerHTML='<option value="">— エントリーを選択 —</option>'+entries.map(e=>`<option value="${e.id}">${e.date} · ${e.title}</option>`).join('');
+  document.getElementById('note-checks').innerHTML=entries.map(e=>`<label class="note-check-label"><input type="checkbox" value="${e.id}" style="width:auto">${e.date.slice(5)} ${e.title.slice(0,12)}</label>`).join('');
+}
+async function callClaude(prompt){
+  const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})});
+  const d=await res.json();return d.content.map(c=>c.text||'').join('');
+}
+function hotelText(h){if(!h||!h.name)return '';const cats=[['overall','総合'],['clean','清潔さ'],['location','立地'],['service','サービス'],['value','コスパ']];return `宿泊先：${h.name}\n`+cats.filter(([k])=>h.ratings[k]).map(([k,l])=>`${l}：${'★'.repeat(h.ratings[k])}（${h.ratings[k]}/5）`).join('、')+(h.memo?`\nコメント：${h.memo}`:'');}
+async function generateIG(){
+  const id=parseInt(document.getElementById('ig-select').value);if(!id){alert('エントリーを選択してください');return;}
+  const e=entries.find(x=>x.id===id);
+  const out=document.getElementById('ig-output'),btn=document.getElementById('ig-copy');
+  out.style.display='block';out.className='ai-output generating';out.textContent='生成中...';btn.style.display='none';
+  const text=await callClaude(`以下の旅日記をInstagram投稿文に変換してください。\n日付：${e.date}、場所：${e.place}、気分：${e.mood||'未記入'}\n日記：${e.body}\n${e.hotel&&e.hotel.name?hotelText(e.hotel):''}\nタグ：${e.tags.join(', ')||'なし'}\n要件：魅力的で温かみのある文章150〜200字、改行活用、絵文字使用、最後に日本語ハッシュタグ10個以上、本文とハッシュタグの間は空行`);
+  out.className='ai-output';out.textContent=text;btn.style.display='inline-flex';
+}
+async function generateNote(){
+  const checked=[...document.querySelectorAll('#note-checks input:checked')].map(c=>parseInt(c.value));if(!checked.length){alert('エントリーを選択してください');return;}
+  const out=document.getElementById('note-output'),btn=document.getElementById('note-copy');
+  out.style.display='block';out.className='ai-output generating';out.textContent='記事を生成中...';btn.style.display='none';
+  const txt=entries.filter(e=>checked.includes(e.id)).map(e=>`【${e.date}/${e.place}】\n${e.body}${e.hotel&&e.hotel.name?'\n'+hotelText(e.hotel):''}`).join('\n\n---\n\n');
+  const text=await callClaude(`以下の旅日記をnote用エッセイ記事に仕上げてください。\n${txt}\n要件：タイトル・リード文・本文構成、1200〜1800字、見出しあり、臨場感ある文体`);
+  out.className='ai-output';out.textContent=text;btn.style.display='inline-flex';
+}
+async function generateSummary(){
+  if(!entries.length){alert('まだエントリーがありません');return;}
+  const out=document.getElementById('sum-output'),btn=document.getElementById('sum-copy');
+  out.style.display='block';out.className='ai-output generating';out.textContent='サマリーを生成中...';btn.style.display='none';
+  const hotels=entries.filter(e=>e.hotel&&e.hotel.name).map(e=>`${e.hotel.name}（総合${e.hotel.ratings.overall}/5）`);
+  const text=await callClaude(`旅日記からサマリーを作成してください。\nエントリー数：${entries.length}件\n訪問場所：${[...new Set(entries.map(e=>e.place))].join('、')}\n${hotels.length?'宿泊先：'+hotels.join('、'):''}\n日記：\n${entries.map(e=>`${e.date} ${e.place}: ${e.body.slice(0,80)}`).join('\n')}\n内容：①旅の統計 ②ハイライト3つ ③総括 ④次の旅へのメッセージ`);
+  out.className='ai-output';out.textContent=text;btn.style.display='inline-flex';
+}
+function copyText(id){navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>alert('コピーしました！'));}
+
+// TABS
+function switchTab(tab){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${tab}"]`).classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
+  if(tab==='entries')renderEntries();
+  if(tab==='reservations')renderReservations();
+  if(tab==='export')refreshExportSelects();
+}
+
+// INIT
+initStars();
+document.getElementById('f-date').value=new Date(Date.now()+9*60*60*1000).toISOString().split('T')[0];
+
+// データはFirebaseに保存済み
+
+// Show loading state until Firebase connects
+document.getElementById('entries-list').innerHTML='<div class="empty-state"><i class="ti ti-loader" style="animation:spin 1s linear infinite"></i><p>データを読み込み中...</p></div>';
+document.getElementById('reservations-list').innerHTML='<div class="empty-state"><i class="ti ti-loader" style="animation:spin 1s linear infinite"></i><p>データを読み込み中...</p></div>';
+</script>
+</body>
+</html>
