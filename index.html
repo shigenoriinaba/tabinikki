@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>いなたむりつの旅日記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<!-- PWA Icons -->
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMzYTllOGEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMmQ3YTY1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzdW4iIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZjBiNDI5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2U4OTQ1YSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgCiAgPCEtLSBSb3VuZGVkIHJlY3QgYmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICAKICA8IS0tIERlY29yYXRpdmUgY2lyY2xlcyAtLT4KICA8Y2lyY2xlIGN4PSI0MjAiIGN5PSI5MCIgcj0iNjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiLz4KICA8Y2lyY2xlIGN4PSI4MCIgY3k9IjQyMCIgcj0iODAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNikiLz4KICAKICA8IS0tIFN1biAvIGNvbXBhc3Mgcm9zZSAtLT4KICA8Y2lyY2xlIGN4PSIzNDAiIGN5PSIxMzAiIHI9IjUyIiBmaWxsPSJ1cmwoI3N1bikiLz4KICA8Y2lyY2xlIGN4PSIzNDAiIGN5PSIxMzAiIHI9IjM0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMjUpIi8+CiAgCiAgPCEtLSBCb29rIC8gZGlhcnkgLS0+CiAgPHJlY3QgeD0iMTAwIiB5PSIxODAiIHdpZHRoPSIyMjAiIGhlaWdodD0iMjcwIiByeD0iMTgiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjk1Ii8+CiAgPHJlY3QgeD0iMTAwIiB5PSIxODAiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyNzAiIHJ4PSIxMSIgZmlsbD0iI2ZkZThkOCIvPgogIDxyZWN0IHg9IjExNSIgeT0iMjIwIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzNhOWU4YSIgb3BhY2l0eT0iMC42Ii8+CiAgPHJlY3QgeD0iMTE1IiB5PSIyNDgiIHdpZHRoPSIxMzAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjM2E5ZThhIiBvcGFjaXR5PSIwLjM1Ii8+CiAgPHJlY3QgeD0iMTE1IiB5PSIyNzIiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjM2E5ZThhIiBvcGFjaXR5PSIwLjM1Ii8+CiAgPHJlY3QgeD0iMTE1IiB5PSIyOTYiIHdpZHRoPSIxMTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjM2E5ZThhIiBvcGFjaXR5PSIwLjM1Ii8+CiAgCiAgPCEtLSBQaG90byBwbGFjZWhvbGRlciBvbiBib29rIC0tPgogIDxyZWN0IHg9IjExNSIgeT0iMzIwIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjEwMCIgcng9IjEwIiBmaWxsPSIjZmRlOGQ4Ii8+CiAgPGNpcmNsZSBjeD0iMTU1IiBjeT0iMzU1IiByPSIxNiIgZmlsbD0iI2UwZjVmMSIvPgogIDxwYXRoIGQ9Ik0xNDAgMzkwIFExNTUgMzY1IDE3MCAzNzUgUTE4NSAzODUgMjAwIDM2OCBRMjE1IDM1MiAyMzAgMzcwIEwyMzAgNDEwIEwxNDAgNDEwIFoiIGZpbGw9IiMzYTllOGEiIG9wYWNpdHk9IjAuNCIvPgogIAogIDwhLS0gQWlycGxhbmUgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjgwLCAyODApIHJvdGF0ZSgtMzUpIj4KICAgIDxwYXRoIGQ9Ik0wIC0zMCBMOCAxMCBMMzAgNSBMMjggMTIgTDggMTggTDEwIDM1IEwwIDMyIEwtMTAgMzUgTC04IDE4IEwtMjggMTIgTC0zMCA1IEwtOCAxMCBaIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDwvZz4KICAKICA8IS0tIExvY2F0aW9uIHBpbiAtLT4KICA8Y2lyY2xlIGN4PSIzOTAiIGN5PSIzNDAiIHI9IjI4IiBmaWxsPSIjZmRlOGQ4Ii8+CiAgPGNpcmNsZSBjeD0iMzkwIiBjeT0iMzMwIiByPSIxNiIgZmlsbD0iI2U4OTQ1YSIvPgogIDxjaXJjbGUgY3g9IjM5MCIgY3k9IjMzMCIgcj0iNyIgZmlsbD0id2hpdGUiLz4KICA8cGF0aCBkPSJNMzkwIDM0NiBMMzgzIDM1OCBMMzkwIDM2NSBMMzk3IDM1OCBaIiBmaWxsPSIjZTg5NDVhIi8+CgogIDwhLS0gU3RhcnMgZGVjb3JhdGlvbiAtLT4KICA8Y2lyY2xlIGN4PSI0MjAiIGN5PSIyMjAiIHI9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC42KSIvPgogIDxjaXJjbGUgY3g9IjQ0MCIgY3k9IjI2MCIgcj0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjQpIi8+CiAgPGNpcmNsZSBjeD0iODAiIGN5PSIyMDAiIHI9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgogIDxjaXJjbGUgY3g9IjY1IiBjeT0iMTYwIiByPSI2IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiLz4KPC9zdmc+">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMzYTllOGEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMmQ3YTY1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzdW4iIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZjBiNDI5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2U4OTQ1YSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgCiAgPCEtLSBSb3VuZGVkIHJlY3QgYmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICAKICA8IS0tIERlY29yYXRpdmUgY2lyY2xlcyAtLT4KICA8Y2lyY2xlIGN4PSI0MjAiIGN5PSI5MCIgcj0iNjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiLz4KICA8Y2lyY2xlIGN4PSI4MCIgY3k9IjQyMCIgcj0iODAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNikiLz4KICAKICA8IS0tIFN1biAvIGNvbXBhc3Mgcm9zZSAtLT4KICA8Y2lyY2xlIGN4PSIzNDAiIGN5PSIxMzAiIHI9IjUyIiBmaWxsPSJ1cmwoI3N1bikiLz4KICA8Y2lyY2xlIGN4PSIzNDAiIGN5PSIxMzAiIHI9IjM0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMjUpIi8+CiAgCiAgPCEtLSBCb29rIC8gZGlhcnkgLS0+CiAgPHJlY3QgeD0iMTAwIiB5PSIxODAiIHdpZHRoPSIyMjAiIGhlaWdodD0iMjcwIiByeD0iMTgiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjk1Ii8+CiAgPHJlY3QgeD0iMTAwIiB5PSIxODAiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyNzAiIHJ4PSIxMSIgZmlsbD0iI2ZkZThkOCIvPgogIDxyZWN0IHg9IjExNSIgeT0iMjIwIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzNhOWU4YSIgb3BhY2l0eT0iMC42Ii8+CiAgPHJlY3QgeD0iMTE1IiB5PSIyNDgiIHdpZHRoPSIxMzAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjM2E5ZThhIiBvcGFjaXR5PSIwLjM1Ii8+CiAgPHJlY3QgeD0iMTE1IiB5PSIyNzIiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjM2E5ZThhIiBvcGFjaXR5PSIwLjM1Ii8+CiAgPHJlY3QgeD0iMTE1IiB5PSIyOTYiIHdpZHRoPSIxMTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjM2E5ZThhIiBvcGFjaXR5PSIwLjM1Ii8+CiAgCiAgPCEtLSBQaG90byBwbGFjZWhvbGRlciBvbiBib29rIC0tPgogIDxyZWN0IHg9IjExNSIgeT0iMzIwIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjEwMCIgcng9IjEwIiBmaWxsPSIjZmRlOGQ4Ii8+CiAgPGNpcmNsZSBjeD0iMTU1IiBjeT0iMzU1IiByPSIxNiIgZmlsbD0iI2UwZjVmMSIvPgogIDxwYXRoIGQ9Ik0xNDAgMzkwIFExNTUgMzY1IDE3MCAzNzUgUTE4NSAzODUgMjAwIDM2OCBRMjE1IDM1MiAyMzAgMzcwIEwyMzAgNDEwIEwxNDAgNDEwIFoiIGZpbGw9IiMzYTllOGEiIG9wYWNpdHk9IjAuNCIvPgogIAogIDwhLS0gQWlycGxhbmUgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjgwLCAyODApIHJvdGF0ZSgtMzUpIj4KICAgIDxwYXRoIGQ9Ik0wIC0zMCBMOCAxMCBMMzAgNSBMMjggMTIgTDggMTggTDEwIDM1IEwwIDMyIEwtMTAgMzUgTC04IDE4IEwtMjggMTIgTC0zMCA1IEwtOCAxMCBaIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDwvZz4KICAKICA8IS0tIExvY2F0aW9uIHBpbiAtLT4KICA8Y2lyY2xlIGN4PSIzOTAiIGN5PSIzNDAiIHI9IjI4IiBmaWxsPSIjZmRlOGQ4Ii8+CiAgPGNpcmNsZSBjeD0iMzkwIiBjeT0iMzMwIiByPSIxNiIgZmlsbD0iI2U4OTQ1YSIvPgogIDxjaXJjbGUgY3g9IjM5MCIgY3k9IjMzMCIgcj0iNyIgZmlsbD0id2hpdGUiLz4KICA8cGF0aCBkPSJNMzkwIDM0NiBMMzgzIDM1OCBMMzkwIDM2NSBMMzk3IDM1OCBaIiBmaWxsPSIjZTg5NDVhIi8+CgogIDwhLS0gU3RhcnMgZGVjb3JhdGlvbiAtLT4KICA8Y2lyY2xlIGN4PSI0MjAiIGN5PSIyMjAiIHI9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC42KSIvPgogIDxjaXJjbGUgY3g9IjQ0MCIgY3k9IjI2MCIgcj0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjQpIi8+CiAgPGNpcmNsZSBjeD0iODAiIGN5PSIyMDAiIHI9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgogIDxjaXJjbGUgY3g9IjY1IiBjeT0iMTYwIiByPSI2IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiLz4KPC9zdmc+">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="旅日記">
+<meta name="theme-color" content="#3a9e8a">
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, doc, setDoc, onSnapshot, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBb7rTjebkdfKsOl6PVVDKpPNQFaKKy92c",
+  authDomain: "tabinikki-8908d.firebaseapp.com",
+  projectId: "tabinikki-8908d",
+  storageBucket: "tabinikki-8908d.firebasestorage.app",
+  messagingSenderId: "84577007034",
+  appId: "1:84577007034:web:8d19223c8261c7a9f4d983"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+// Firebaseへの保存
+window.fbSaveEntry = async (entry) => {
+  await setDoc(doc(db, 'entries', String(entry.id)), entry);
+};
+window.fbDeleteEntry = async (id) => {
+  await deleteDoc(doc(db, 'entries', String(id)));
+};
+window.fbSaveReservation = async (res) => {
+  await setDoc(doc(db, 'reservations', String(res.id)), res);
+};
+window.fbDeleteReservation = async (id) => {
+  await deleteDoc(doc(db, 'reservations', String(id)));
+};
+window._fbSetWish = async (item) => {
+  await setDoc(doc(db, 'wishlist', String(item.id)), item);
+};
+window._fbDeleteWish = async (id) => {
+  await deleteDoc(doc(db, 'wishlist', String(id)));
+};
+window._fbSetDeposit = async (item) => {
+  await setDoc(doc(db, 'deposits', String(item.id)), item);
+};
+window._fbDeleteDeposit = async (id) => {
+  await deleteDoc(doc(db, 'deposits', String(id)));
+};
+window._fbSetReaction = async (entryId, emoji, authors) => {
+  await setDoc(doc(db, 'reactions', `${entryId}_${emoji}`), {entryId, emoji, authors});
+};
+window._fbSetComment = async (comment) => {
+  await setDoc(doc(db, 'comments', String(comment.id)), comment);
+};
+window._fbDeleteComment = async (id) => {
+  await deleteDoc(doc(db, 'comments', String(id)));
+};
+
+
+// リアルタイム同期
+onSnapshot(collection(db, 'entries'), (snapshot) => {
+  window._entries = snapshot.docs.map(d => d.data()).sort((a,b)=>b.date.localeCompare(a.date));
+  if(typeof renderEntries === 'function'){ entries = window._entries; renderEntries(); if(typeof renderCalendar==='function'&&currentView==='cal')renderCalendar(); refreshExportSelects(); }
+});
+onSnapshot(collection(db, 'reservations'), (snapshot) => {
+  window._reservations = snapshot.docs.map(d => d.data()).sort((a,b)=>a.dateFrom.localeCompare(b.dateFrom));
+  if(typeof renderReservations === 'function'){ reservations = window._reservations; renderReservations(); }
+});
+
+onSnapshot(collection(db, 'wishlist'), (snapshot) => {
+  window._wishlist = snapshot.docs.map(d => d.data()).sort((a,b)=>a.createdAt.localeCompare(b.createdAt));
+  if(typeof renderWishlist === 'function'){ wishlist = window._wishlist; renderWishlist(); }
+});
+
+onSnapshot(collection(db, 'deposits'), (snapshot) => {
+  deposits = snapshot.docs.map(d => d.data()).sort((a,b)=>b.date.localeCompare(a.date));
+  if(typeof renderSavings === 'function') renderSavings();
+});
+
+
+onSnapshot(collection(db, 'reactions'), (snapshot) => {
+  window._reactions = {};
+  snapshot.docs.forEach(d => {
+    const data = d.data();
+    if(!window._reactions[data.entryId]) window._reactions[data.entryId] = {};
+    window._reactions[data.entryId][data.emoji] = data.authors || [];
+  });
+  if(typeof renderEntries === 'function') renderEntries();
+});
+onSnapshot(collection(db, 'comments'), (snapshot) => {
+  window._comments = {};
+  snapshot.docs.forEach(d => {
+    const data = d.data();
+    if(!window._comments[data.entryId]) window._comments[data.entryId] = [];
+    window._comments[data.entryId].push(data);
+  });
+  Object.keys(window._comments).forEach(k => {
+    window._comments[k].sort((a,b) => a.createdAt.localeCompare(b.createdAt));
+  });
+  if(typeof renderEntries === 'function') renderEntries();
+});
+
+window.fbReady = true;
+window.dispatchEvent(new Event('fbReady'));
+</script>
+<style>
+:root {
+  --bg: #fde8d8;
+  --surface: #ffffff;
+  --surface2: #fff5f0;
+  --border: #f0d8cc;
+  --border2: #e8c8b8;
+  --text: #2d2420;
+  --text2: #7a6560;
+  --text3: #b09890;
+  --accent: #3a9e8a;
+  --accent-light: #e0f5f1;
+  --accent2: #e8945a;
+  --accent2-light: #fef0e6;
+  --amber: #f0b429;
+  --amber-light: #fef9e7;
+  --blue: #6baed6;
+  --blue-light: #e8f4fb;
+  --purple: #9b8ec4;
+  --purple-light: #f0edfb;
+  --radius: 20px;
+  --radius-sm: 14px;
+  --shadow: 0 2px 8px rgba(0,0,0,.06), 0 6px 20px rgba(0,0,0,.05);
+  --shadow-md: 0 6px 24px rgba(0,0,0,.10), 0 2px 8px rgba(0,0,0,.06);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: hidden; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+/* HEADER */
+.header {
+  background: var(--accent);
+  padding: 0 20px;
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+  box-shadow: 0 4px 16px rgba(58,158,138,.3);
+}
+.header-logo {
+  font-family: 'Nunito', 'Noto Sans JP', sans-serif;
+  font-size: 18px; font-weight: 800;
+  color: #ffffff;
+  display: flex; align-items: center; gap: 8px;
+  letter-spacing: .02em;
+}
+.header-logo i { font-size: 22px; }
+
+/* TABS */
+.tabs {
+  display: flex; gap: 0;
+  border-bottom: none;
+  background: var(--surface);
+  overflow-x: auto;
+  padding: 10px 12px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: scroll-position;
+  gap: 6px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  padding: 8px 14px;
+  font-size: 13px; font-weight: 600;
+  color: var(--text2);
+  cursor: pointer; border: none;
+  background: var(--surface2);
+  border-radius: 99px;
+  white-space: nowrap;
+  display: flex; align-items: center; gap: 5px;
+  transition: all .2s;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  margin-bottom: 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.tab.active { background: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(58,158,138,.35); }
+.tab:hover:not(.active) { background: var(--border); }
+
+/* CONTENT */
+.content { max-width: 640px; margin: 0 auto; padding: 20px 16px 100px; width: 100%; }
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* FORM */
+.form-group { margin-bottom: 16px; }
+.form-label { font-size: 12px; font-weight: 500; color: var(--text2); margin-bottom: 6px; display: block; letter-spacing: .03em; }
+input[type=text], input[type=date], input[type=time], input[type=number], textarea, select {
+  width: 100%; padding: 12px 16px;
+  background: var(--surface); border: 2px solid var(--border);
+  border-radius: var(--radius-sm); font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px; color: var(--text);
+  transition: border-color .15s, box-shadow .15s;
+  outline: none;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(58,158,138,.12);
+}
+textarea { resize: vertical; min-height: 100px; line-height: 1.7; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 360px) { .row2 { grid-template-columns: 1fr; } }
+
+/* AUTHOR */
+.author-row { display: flex; gap: 10px; margin-bottom: 0; }
+.author-btn {
+  flex: 1; padding: 10px; font-size: 14px; font-weight: 500;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  background: none; cursor: pointer; color: var(--text2);
+  transition: all .15s; font-family: 'Noto Sans JP', sans-serif;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.author-btn.active-inaba { border-color: #2d5a3d; background: #e8f0eb; color: #2d5a3d; }
+.author-btn.active-tamura { border-color: #8b5e3c; background: #f5ede5; color: #8b5e3c; }
+.author-btn:hover:not(.active-inaba):not(.active-tamura) { background: var(--surface2); }
+
+/* MOOD */
+.mood-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.mood-btn {
+  padding: 8px 16px; font-size: 13px;
+  border: 2px solid var(--border); border-radius: 99px;
+  background: var(--surface); cursor: pointer; color: var(--text2);
+  transition: all .15s; font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 600;
+}
+.mood-btn.active { background: var(--accent-light); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+.mood-btn:hover:not(.active) { background: var(--surface2); }
+
+/* STARS */
+.hotel-section {
+  background: var(--amber-light); border-radius: var(--radius);
+  padding: 16px; margin-bottom: 16px;
+  border: 2px solid var(--border);
+}
+.hotel-section-title { font-size: 13px; font-weight: 500; margin-bottom: 14px; color: var(--text); display: flex; align-items: center; gap: 6px; }
+.star-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.star-label { font-size: 12px; color: var(--text2); width: 58px; flex-shrink: 0; }
+.stars { display: flex; gap: 3px; }
+.star { font-size: 24px; cursor: pointer; color: var(--border2); transition: color .1s; user-select: none; line-height: 1; }
+.star.lit, .star.hover { color: var(--amber); }
+.star-val { font-size: 12px; color: var(--text3); min-width: 28px; }
+.toggle-btn {
+  background: none; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 8px 14px;
+  font-size: 13px; color: var(--text2); cursor: pointer;
+  margin-bottom: 16px; display: inline-flex; align-items: center; gap: 6px;
+  transition: all .15s; font-family: 'Noto Sans JP', sans-serif;
+}
+.toggle-btn:hover { background: var(--surface2); }
+.hotel-fields { display: none; }
+.hotel-fields.open { display: block; }
+
+/* PHOTO */
+.photo-drop {
+  border: 2px dashed var(--border2); border-radius: var(--radius);
+  padding: 28px; text-align: center; cursor: pointer;
+  font-size: 13px; color: var(--text3); margin-bottom: 12px;
+  transition: all .15s; background: var(--surface2);
+}
+.photo-drop:hover { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+.photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+@media (max-width: 400px) { .photo-grid { grid-template-columns: repeat(3, 1fr); } }
+.photo-thumb { aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; position: relative; }
+.photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.photo-del {
+  position: absolute; top: 4px; right: 4px;
+  background: rgba(0,0,0,.55); border: none; border-radius: 50%;
+  width: 20px; height: 20px; font-size: 10px; color: #fff;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: var(--accent); color: #fff; border: none;
+  border-radius: 99px; padding: 12px 24px;
+  font-size: 14px; font-weight: 700; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: all .2s; font-family: 'Noto Sans JP', sans-serif;
+  box-shadow: 0 4px 12px rgba(58,158,138,.35);
+  letter-spacing: .02em;
+}
+.btn-primary:hover { opacity: .88; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(58,158,138,.4); }
+.btn-secondary {
+  background: var(--surface); border: 2px solid var(--border);
+  border-radius: 99px; padding: 9px 18px;
+  font-size: 13px; color: var(--text); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: all .15s; font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 600;
+}
+.btn-secondary:hover { background: var(--surface2); border-color: var(--border2); }
+.btn-row { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; width: 100%; }
+.save-msg { font-size: 13px; color: var(--accent); margin-top: 10px; display: none; font-weight: 500; }
+
+/* SECTION HEADER */
+.section-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; width: 100%; }
+.section-title { font-family: 'Nunito', 'Noto Sans JP', sans-serif; font-size: 18px; font-weight: 800; color: var(--text); }
+
+/* WISHLIST */
+.wish-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 16px;
+  margin-bottom: 8px; display: flex; align-items: center;
+  gap: 12px; box-shadow: var(--shadow); transition: all .2s;
+}
+.wish-item:hover { border-color: var(--border2); }
+.wish-cat { font-size: 20px; flex-shrink: 0; }
+.wish-text { flex: 1; font-size: 14px; color: var(--text); line-height: 1.5; }
+.wish-del { background: none; border: none; color: var(--text3); cursor: pointer; font-size: 16px; padding: 4px; flex-shrink: 0; }
+.wish-del:hover { color: var(--text); }
+
+/* CALENDAR */
+.calendar-wrap { background: var(--surface); border: none; border-radius: var(--radius); padding: 18px; margin-bottom: 20px; box-shadow: var(--shadow); }
+.cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.cal-title { font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 600; }
+.cal-nav { background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); width: 30px; height: 30px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text2); font-size: 14px; }
+.cal-nav:hover { background: var(--surface2); }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.cal-dow { font-size: 11px; color: var(--text3); text-align: center; padding: 4px 0; font-weight: 500; }
+.cal-day { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 6px; cursor: pointer; font-size: 13px; color: var(--text2); position: relative; transition: all .15s; gap: 2px; }
+.cal-day:hover { background: var(--surface2); }
+.cal-day.has-entry { color: var(--text); font-weight: 500; }
+.cal-day.today { background: var(--accent-light); color: var(--accent); font-weight: 600; }
+.cal-day.selected { background: var(--accent); color: #fff !important; font-weight: 600; }
+.cal-day.empty { cursor: default; }
+.cal-dot-row { display: flex; gap: 2px; justify-content: center; }
+.cal-dot { width: 4px; height: 4px; border-radius: 50%; }
+.cal-dot-inaba { background: #2d5a3d; }
+.cal-dot-tamura { background: #8b5e3c; }
+.cal-dot-default { background: var(--accent); }
+.view-toggle { display: flex; gap: 6px; margin-bottom: 16px; }
+.view-btn { padding: 6px 14px; font-size: 12px; border: 1px solid var(--border); border-radius: 99px; background: none; cursor: pointer; color: var(--text2); transition: all .15s; font-family: 'Noto Sans JP', sans-serif; }
+.view-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ENTRY CARDS */
+.entry-card {
+  background: var(--surface); border: none;
+  border-radius: var(--radius); padding: 18px 20px;
+  margin-bottom: 14px; cursor: pointer;
+  box-shadow: var(--shadow); transition: all .2s;
+}
+.entry-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.entry-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.entry-date { font-size: 12px; color: var(--text3); }
+.entry-place { font-size: 12px; font-weight: 500; color: var(--accent2); display: flex; align-items: center; gap: 3px; }
+.entry-title { font-family: 'Nunito', 'Noto Sans JP', sans-serif; font-size: 16px; font-weight: 800; margin-bottom: 6px; color: var(--text); }
+.entry-body { font-size: 13px; color: var(--text2); line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.tag { display: inline-block; font-size: 11px; padding: 4px 10px; border-radius: 99px; background: var(--accent-light); color: var(--accent); margin: 2px; border: none; font-weight: 600; }
+.hotel-mini { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 12px; color: var(--text2); background: var(--amber-light); border-radius: 6px; padding: 4px 10px; border: 1px solid #e8d98a; }
+.hotel-mini .mstars { color: var(--amber); font-size: 13px; }
+.empty-state { text-align: center; padding: 60px 20px; color: var(--text3); }
+.empty-state i { font-size: 40px; display: block; margin-bottom: 12px; color: var(--border2); }
+.empty-state p { font-size: 14px; line-height: 1.7; }
+
+/* UPCOMING LABEL */
+.list-label {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; font-weight: 800; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent);
+  margin: 24px 0 12px; font-family: 'Nunito', sans-serif;
+}
+.list-label::before {
+  content: ''; display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+}
+.list-label::after {
+  content: ''; flex: 1; height: 1.5px;
+  background: linear-gradient(90deg, var(--accent-light), transparent);
+}
+.list-label:first-child { margin-top: 0; }
+
+/* RESERVATION CARDS */
+.res-card {
+  background: var(--surface); border: none;
+  border-radius: var(--radius); padding: 16px 18px;
+  margin-bottom: 12px; cursor: pointer;
+  box-shadow: var(--shadow); transition: all .2s;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.res-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.res-icon {
+  width: 42px; height: 42px; border-radius: var(--radius-sm);
+  background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 20px; color: var(--accent);
+}
+.res-icon.flight { background: var(--blue-light); color: var(--blue); }
+.res-icon.train { background: var(--amber-light); color: var(--amber); }
+.res-icon.activity { background: var(--purple-light); color: var(--purple); }
+.res-icon.other { background: var(--surface2); color: var(--text2); }
+.res-body { flex: 1; min-width: 0; }
+.res-name { font-size: 14px; font-weight: 500; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: calc(100vw - 100px); }
+.res-date-line { font-size: 12px; color: var(--text3); margin-bottom: 3px; display: flex; align-items: center; gap: 5px; }
+.res-confirm { font-size: 11px; color: var(--text3); font-family: monospace; margin-top: 3px; }
+.res-badge { display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 99px; font-weight: 500; margin-bottom: 4px; }
+.badge-hotel { background: var(--accent-light); color: var(--accent); }
+.badge-flight { background: var(--blue-light); color: #1a6fa8; }
+.badge-train { background: var(--amber-light); color: #7a5a00; }
+.badge-activity { background: var(--purple-light); color: var(--purple); }
+.badge-other { background: var(--surface2); color: var(--text2); }
+
+/* IMPORT */
+.import-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.import-title { font-size: 14px; font-weight: 500; margin-bottom: 8px; display: flex; align-items: center; gap: 7px; color: var(--text); }
+.import-desc { font-size: 13px; color: var(--text2); margin-bottom: 14px; line-height: 1.65; }
+.preview-card {
+  background: var(--accent-light); border: 1.5px solid var(--accent);
+  border-radius: var(--radius); padding: 16px 18px; margin-top: 14px;
+}
+.preview-label { font-size: 11px; font-weight: 500; color: var(--accent); margin-bottom: 12px; text-transform: uppercase; letter-spacing: .07em; display: flex; align-items: center; gap: 6px; }
+.preview-row { display: flex; gap: 10px; margin-bottom: 7px; font-size: 13px; }
+.preview-key { color: var(--text2); width: 76px; flex-shrink: 0; }
+.preview-val { color: var(--text); font-weight: 500; }
+
+/* RES TYPE GRID */
+.res-type-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+@media (max-width: 400px) { .res-type-grid { grid-template-columns: repeat(2, 1fr); } }
+.res-type-btn {
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 10px 6px; text-align: center; cursor: pointer;
+  background: var(--surface); transition: all .15s;
+  font-size: 12px; color: var(--text2); font-family: 'Noto Sans JP', sans-serif;
+}
+.res-type-btn i { display: block; font-size: 20px; margin-bottom: 4px; color: var(--text3); }
+.res-type-btn.active { border-color: var(--accent); background: var(--accent-light); color: var(--accent); font-weight: 500; }
+.res-type-btn.active i { color: var(--accent); }
+
+/* EXPORT */
+.export-section {
+  background: var(--surface); border: none;
+  border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.export-title { font-size: 14px; font-weight: 500; margin-bottom: 5px; display: flex; align-items: center; gap: 7px; }
+.export-desc { font-size: 12px; color: var(--text2); margin-bottom: 14px; line-height: 1.6; }
+.ai-output {
+  background: var(--surface2); border-radius: var(--radius-sm);
+  padding: 14px; font-size: 13px; line-height: 1.8;
+  white-space: pre-wrap; margin-top: 12px; color: var(--text);
+  border: 1px solid var(--border);
+}
+.generating { color: var(--text3); font-style: italic; }
+.note-checks { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.note-check-label {
+  display: flex; align-items: center; gap: 5px; font-size: 13px;
+  cursor: pointer; background: var(--surface2); padding: 5px 12px;
+  border-radius: 99px; border: 1px solid var(--border);
+  transition: all .15s;
+}
+.note-check-label:hover { border-color: var(--accent); }
+
+/* MODAL */
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.45);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 16px; z-index: 200; overflow-y: auto;
+}
+.modal {
+  background: var(--surface); border-radius: var(--radius);
+  width: 100%; max-width: 540px; padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: none;
+}
+.modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+.modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--text3); padding: 2px 6px; }
+.modal-close:hover { color: var(--text); }
+.modal-date { font-size: 12px; color: var(--text3); margin-bottom: 5px; }
+.modal-title { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 600; }
+.modal-photos { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
+.modal-photo { aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; }
+.modal-photo img { width: 100%; height: 100%; object-fit: cover; }
+.modal-body { font-size: 14px; line-height: 1.85; color: var(--text); }
+.modal-hotel { background: var(--amber-light); border-radius: var(--radius-sm); padding: 12px 14px; margin-top: 14px; border: 1px solid #e8d98a; }
+.modal-hotel-name { font-size: 13px; font-weight: 500; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.modal-star-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.modal-star-label { font-size: 12px; color: var(--text2); width: 58px; }
+.modal-stars { color: var(--amber); font-size: 14px; }
+.modal-hotel-memo { font-size: 13px; color: var(--text2); margin-top: 8px; line-height: 1.6; }
+.modal-res-detail { background: var(--surface2); border-radius: var(--radius-sm); padding: 14px; }
+.modal-res-row { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; align-items: flex-start; }
+.modal-res-label { color: var(--text2); width: 76px; flex-shrink: 0; font-size: 12px; padding-top: 1px; }
+.modal-res-val { color: var(--text); line-height: 1.5; }
+.modal-actions { margin-top: 18px; display: flex; gap: 8px; }
+
+#file-input { display: none; }
+.loading-spinner { text-align: center; padding: 30px; color: var(--text2); font-size: 13px; }
+
+/* SAVINGS POTS */
+.pot-card {
+  background: #fff; border-radius: var(--radius);
+  padding: 16px; box-shadow: var(--shadow);
+  cursor: pointer; transition: all .2s;
+  position: relative; overflow: hidden;
+}
+.pot-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.pot-card.completed { background: linear-gradient(135deg, #e0f5f1, #b2f0e8); }
+.pot-emoji { font-size: 28px; margin-bottom: 8px; display: block; }
+.pot-name { font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+.pot-amount { font-family: 'Nunito',sans-serif; font-size: 18px; font-weight: 800; color: var(--accent); margin-bottom: 2px; }
+.pot-goal { font-size: 11px; color: var(--text3); margin-bottom: 8px; }
+.pot-bar { background: var(--surface2); border-radius: 99px; height: 6px; overflow: hidden; }
+.pot-fill { height: 100%; border-radius: 99px; transition: width .4s; }
+.pot-pct { font-size: 11px; font-weight: 700; color: var(--accent); margin-top: 4px; }
+.pot-select-btn { padding: 8px 14px; border-radius: 99px; border: 2px solid var(--border); background: var(--surface2); font-size: 13px; font-weight: 700; cursor: pointer; transition: all .15s; font-family: 'Noto Sans JP',sans-serif; }
+.pot-select-btn.active { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
+
+/* REACTIONS & COMMENTS */
+.reaction-row { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.reaction-btn {
+  display: flex; align-items: center; gap: 4px;
+  padding: 5px 10px; border-radius: 99px;
+  border: 1px solid var(--border); background: var(--surface);
+  font-size: 13px; cursor: pointer; transition: all .15s;
+  font-family: 'Noto Sans JP', sans-serif; color: var(--text2);
+}
+.reaction-btn:hover { background: var(--surface2); }
+.reaction-btn.reacted { background: var(--accent-light); border-color: var(--accent); color: var(--accent); font-weight: 500; }
+.reaction-count { font-size: 12px; }
+.comment-section { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
+.comment-item { display: flex; gap: 8px; margin-bottom: 10px; }
+.comment-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; color: #fff; }
+.comment-bubble { background: var(--surface2); border-radius: 12px; padding: 8px 12px; flex: 1; }
+.comment-author { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
+.comment-text { font-size: 13px; color: var(--text); line-height: 1.5; }
+.comment-time { font-size: 10px; color: var(--text3); margin-top: 3px; }
+.comment-input-row { display: flex; gap: 8px; margin-top: 10px; }
+.comment-input-row input { flex: 1; font-size: 13px; padding: 8px 12px; border-radius: 99px; }
+.comment-send { background: var(--accent); color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; font-size: 15px; }
+.comment-send:hover { opacity: .85; }
+
+/* DETAIL PAGE */
+.detail-page {
+  position: fixed; inset: 0; background: var(--bg);
+  z-index: 150; overflow-y: auto;
+  animation: slideUp .25s cubic-bezier(.32,1,.6,1);
+}
+@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.detail-page-header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--surface);
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; height: 56px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.detail-page-back {
+  background: none; border: none; font-size: 22px;
+  cursor: pointer; color: var(--text2); display: flex;
+  align-items: center; padding: 4px;
+}
+.detail-page-back:hover { color: var(--text); }
+.detail-page-title { font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 600; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.detail-photos-hero { width: 100%; background: #1a1814; }
+.detail-photos-hero img { width: 100%; max-height: 55vh; object-fit: contain; display: block; cursor: pointer; }
+.detail-photos-strip { display: flex; gap: 4px; padding: 4px; background: #1a1814; overflow-x: auto; }
+.detail-photos-strip::-webkit-scrollbar { display: none; }
+.detail-strip-thumb { width: 60px; height: 68px; flex-shrink: 0; border-radius: 4px; overflow: hidden; cursor: pointer; opacity: .6; transition: opacity .15s; border: 2px solid transparent; }
+.detail-strip-thumb.active { opacity: 1; border-color: #fff; }
+.detail-strip-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.detail-body-wrap { padding: 20px 16px 40px; max-width: 640px; margin: 0 auto; }
+
+/* MASONRY */
+.masonry-grid { columns: 2; column-gap: 6px; padding: 6px; background: var(--bg); }
+.masonry-item { break-inside: avoid; margin-bottom: 6px; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative; }
+.masonry-item img { width: 100%; height: auto; display: block; transition: transform .2s; }
+.masonry-item:hover img { transform: scale(1.02); }
+.masonry-item:first-child { column-span: all; }
+.detail-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.detail-title { font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 600; margin-bottom: 14px; line-height: 1.4; }
+.detail-text { font-size: 15px; line-height: 1.85; color: var(--text); margin-bottom: 16px; }
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed; inset: 0; background: rgba(0,0,0,.92);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 300; padding: 16px;
+}
+.lightbox img {
+  max-width: 100%; max-height: 90vh;
+  border-radius: 8px; object-fit: contain;
+  box-shadow: 0 8px 40px rgba(0,0,0,.5);
+}
+.lightbox-close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,.15); border: none; border-radius: 50%;
+  width: 40px; height: 40px; color: #fff; font-size: 20px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.lightbox-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,.15); border: none; border-radius: 50%;
+  width: 44px; height: 44px; color: #fff; font-size: 20px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.lightbox-nav.prev { left: 12px; }
+.lightbox-nav.next { right: 12px; }
+.lightbox-counter {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,.7); font-size: 13px;
+}
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(80px);
+  background: var(--accent); color: #fff;
+  padding: 13px 24px; border-radius: 99px;
+  font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 6px 24px rgba(58,158,138,.4);
+  z-index: 999; transition: transform .3s cubic-bezier(.34,1.56,.64,1), opacity .3s;
+  opacity: 0; pointer-events: none; white-space: nowrap;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+.loading-spinner i { font-size: 28px; display: block; margin-bottom: 10px; color: var(--text3); animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-logo" style="flex-direction:column;align-items:flex-start;gap:0">
+    <div style="display:flex;align-items:center;gap:8px">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="16" fill="rgba(255,255,255,0.2)"/>
+        <path d="M6 12h3l2-3h10l2 3h3v13H6V12Z" stroke="white" stroke-width="1.8" stroke-linejoin="round" fill="rgba(255,255,255,0.15)"/>
+        <circle cx="16" cy="18" r="4" stroke="white" stroke-width="1.8" fill="none"/>
+        <circle cx="23" cy="14" r="1" fill="white"/>
+      </svg>
+      <span style="display:inline-flex;align-items:baseline;gap:1px;line-height:1">
+        <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:19px;color:#fff;transform:rotate(-5deg);display:inline-block">い</span>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;color:#ffe0b2;transform:rotate(3deg);display:inline-block">な</span>
+        <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:18px;color:#b2f0e8;transform:rotate(-3deg);display:inline-block">た</span>
+        <span style="font-family:'Nunito',sans-serif;font-weight:600;font-size:14px;color:#fff;transform:rotate(4deg);display:inline-block">む</span>
+        <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:17px;color:#ffd54f;transform:rotate(-4deg);display:inline-block">り</span>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;font-size:16px;color:#fff;transform:rotate(2deg);display:inline-block">つ</span>
+        <span style="font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;color:#b2f0e8;transform:rotate(-2deg);display:inline-block;margin:0 2px">の</span>
+        <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:20px;color:#ffe0b2;transform:rotate(-6deg);display:inline-block">旅</span>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;color:#ffd54f;transform:rotate(5deg);display:inline-block">日</span>
+        <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:18px;color:#fff;transform:rotate(-3deg);display:inline-block">記</span>
+      </span>
+    </div>
+    <div style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:.18em;text-transform:uppercase;padding-left:40px;margin-top:-2px">Travel Diary</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('write')"><i class="ti ti-pencil"></i> 記録</button>
+  <button class="tab" onclick="switchTab('entries')"><i class="ti ti-book"></i> 日記</button>
+  <button class="tab" onclick="switchTab('wishlist')"><i class="ti ti-star"></i> やりたいこと</button>
+  <button class="tab" onclick="switchTab('reservations')"><i class="ti ti-calendar-check"></i> 予約</button>
+  <button class="tab" onclick="switchTab('savings')"><i class="ti ti-coin"></i> 積立</button>
+  <button class="tab" onclick="switchTab('export')"><i class="ti ti-sparkles"></i> AI出力</button>
+</div>
+
+<div class="content">
+
+  <!-- WRITE -->
+  <div id="panel-write" class="panel active">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <div>
+        <div style="font-family:'Nunito','Noto Sans JP',sans-serif;font-size:22px;font-weight:800;color:var(--text)">今日の記録 ✏️</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:2px">旅の思い出を残しましょう</div>
+      </div>
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="#e0f5f1"/>
+        <path d="M20 44L24 34L38 20L44 26L30 40L20 44Z" fill="#3a9e8a" opacity=".8"/>
+        <path d="M38 20L44 26L46 18L38 20Z" fill="#f0b429"/>
+        <circle cx="44" cy="22" r="3" fill="#e8945a"/>
+        <path d="M20 44L22 38L26 42L20 44Z" fill="#2d7a65"/>
+      </svg>
+    </div>
+    <div class="form-group">
+      <label class="form-label">だれが書く？</label>
+      <div class="author-row">
+        <button class="author-btn" id="author-inaba" onclick="selectAuthor('inaba')">🙍‍♂️ Inaba</button>
+        <button class="author-btn" id="author-tamura" onclick="selectAuthor('tamura')">🙎‍♀️ Tamura</button>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="form-group"><label class="form-label">日付</label><input type="date" id="f-date"></div>
+      <div class="form-group"><label class="form-label">場所</label><input type="text" id="f-place" placeholder="例：京都・伏見稲荷"></div>
+    </div>
+    <div class="form-group"><label class="form-label">タイトル（任意）</label><input type="text" id="f-title" placeholder="例：千本鳥居に圧倒された日"></div>
+    <div class="form-group"><label class="form-label">感想・できごと</label><textarea id="f-body" placeholder="今日の旅の感想を自由に書いてください。メモ書きでもOK！"></textarea></div>
+    <div class="form-group">
+      <label class="form-label">気分</label>
+      <div class="mood-row">
+        <button class="mood-btn" onclick="selectMood(this,'😊 最高')">😊 最高</button>
+        <button class="mood-btn" onclick="selectMood(this,'😌 穏やか')">😌 穏やか</button>
+        <button class="mood-btn" onclick="selectMood(this,'😲 驚き')">😲 驚き</button>
+        <button class="mood-btn" onclick="selectMood(this,'😴 疲れた')">😴 疲れた</button>
+        <button class="mood-btn" onclick="selectMood(this,'🥺 感動')">🥺 感動</button>
+        <button class="mood-btn" onclick="selectMood(this,'😂 爆笑')">😂 爆笑</button>
+      </div>
+    </div>
+    <div class="form-group"><label class="form-label">タグ（カンマ区切り）</label><input type="text" id="f-tags" placeholder="例：食べ歩き, 神社, 早起き"></div>
+    <div class="form-group">
+      <button class="toggle-btn" id="hotel-toggle-btn" onclick="toggleHotel()"><i class="ti ti-building"></i> ＋ ホテルの評価を追加</button>
+      <div class="hotel-fields" id="hotel-fields">
+        <div class="hotel-section">
+          <div class="hotel-section-title"><i class="ti ti-building"></i> ホテル評価</div>
+          <div class="form-group" style="margin-bottom:12px"><label class="form-label">ホテル名</label><input type="text" id="h-name" placeholder="例：よろづや"></div>
+          <div class="star-row"><span class="star-label">総合</span><div class="stars" id="s-overall"></div><span class="star-val" id="sv-overall">−</span></div>
+          <div class="star-row"><span class="star-label">清潔さ</span><div class="stars" id="s-clean"></div><span class="star-val" id="sv-clean">−</span></div>
+          <div class="star-row"><span class="star-label">立地</span><div class="stars" id="s-location"></div><span class="star-val" id="sv-location">−</span></div>
+          <div class="star-row"><span class="star-label">サービス</span><div class="stars" id="s-service"></div><span class="star-val" id="sv-service">−</span></div>
+          <div class="star-row"><span class="star-label">コスパ</span><div class="stars" id="s-value"></div><span class="star-val" id="sv-value">−</span></div>
+          <div style="margin-top:12px"><label class="form-label">ひとことメモ</label><textarea id="h-memo" style="min-height:64px" placeholder="例：朝食が最高だった。部屋からの眺めも絶景"></textarea></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">写真</label>
+      <div class="photo-drop" onclick="document.getElementById('file-input').click()">
+        <i class="ti ti-upload" style="font-size:24px;display:block;margin-bottom:8px"></i>
+        タップして写真を追加
+      </div>
+      <input type="file" id="file-input" accept="image/*" multiple onchange="addPhotos(this)">
+      <div class="photo-grid" id="photo-grid"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-primary" onclick="saveEntry()"><i class="ti ti-check"></i> 保存する</button>
+      <button class="btn-secondary" onclick="clearForm()"><i class="ti ti-x"></i> クリア</button>
+    </div>
+    <div class="save-msg" id="save-msg" style="display:none">✓ 保存しました！</div>
+  </div>
+
+  <!-- ENTRIES -->
+  <div id="panel-entries" class="panel">
+    <div class="section-header">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="18" fill="#e0f5f1"/>
+          <rect x="10" y="9" width="16" height="18" rx="3" fill="#3a9e8a" opacity=".8"/>
+          <rect x="13" y="14" width="10" height="2" rx="1" fill="white"/>
+          <rect x="13" y="18" width="7" height="2" rx="1" fill="white" opacity=".7"/>
+          <rect x="13" y="22" width="8" height="2" rx="1" fill="white" opacity=".7"/>
+        </svg>
+        <span class="section-title">日記一覧</span>
+      </div>
+    </div>
+    <div class="view-toggle">
+      <button class="view-btn active" id="view-btn-cal" onclick="setView('cal')"><i class="ti ti-calendar"></i> カレンダー</button>
+      <button class="view-btn" id="view-btn-list" onclick="setView('list')"><i class="ti ti-list"></i> リスト</button>
+    </div>
+    <div id="calendar-wrap" class="calendar-wrap"></div>
+    <div id="entries-list"></div>
+  </div>
+
+  <!-- WISHLIST -->
+  <div id="panel-wishlist" class="panel">
+    <div class="section-header">
+      <span class="section-title">やりたいこと！</span>
+      <button class="btn-secondary" onclick="showWishForm()"><i class="ti ti-plus"></i> 追加</button>
+    </div>
+    <div id="wish-form" style="display:none;margin-bottom:16px">
+      <div style="display:flex;gap:8px">
+        <input type="text" id="wish-input" placeholder="例：金具屋の外湯めぐり、地酒を飲む..." style="flex:1">
+        <button class="btn-primary" onclick="saveWish()"><i class="ti ti-check"></i> 追加</button>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap" id="wish-category-row">
+        <button class="mood-btn" onclick="selectWishCat(this,'🍜 グルメ')">🍜 グルメ</button>
+        <button class="mood-btn" onclick="selectWishCat(this,'🏞️ 観光')">🏞️ 観光</button>
+        <button class="mood-btn" onclick="selectWishCat(this,'♨️ 温泉')">♨️ 温泉</button>
+        <button class="mood-btn" onclick="selectWishCat(this,'🛍️ 買い物')">🛍️ 買い物</button>
+        <button class="mood-btn" onclick="selectWishCat(this,'🎯 体験')">🎯 体験</button>
+        <button class="mood-btn" onclick="selectWishCat(this,'📷 写真')">📷 写真</button>
+      </div>
+    </div>
+    <div id="wishlist"></div>
+  </div>
+
+  <!-- RESERVATIONS -->
+  <div id="panel-reservations" class="panel">
+    <div id="res-list-view">
+      <div class="section-header">
+        <div style="display:flex;align-items:center;gap:10px">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="#e0f5f1"/>
+            <rect x="8" y="12" width="20" height="16" rx="3" fill="#3a9e8a" opacity=".8"/>
+            <rect x="8" y="12" width="20" height="5" rx="3" fill="#3a9e8a"/>
+            <circle cx="13" cy="10" r="2" fill="#f0b429" stroke="white" stroke-width="1"/>
+            <circle cx="23" cy="10" r="2" fill="#f0b429" stroke="white" stroke-width="1"/>
+            <rect x="12" y="21" width="4" height="4" rx="1" fill="white" opacity=".8"/>
+            <rect x="20" y="21" width="4" height="4" rx="1" fill="white" opacity=".5"/>
+          </svg>
+          <span class="section-title">予約一覧</span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn-secondary" onclick="showResForm()"><i class="ti ti-plus"></i> 手動で追加</button>
+        </div>
+      </div>
+      <div style="background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:16px;font-size:13px;color:var(--accent);display:flex;align-items:flex-start;gap:8px;line-height:1.6">
+        <i class="ti ti-message-chatbot" style="font-size:18px;flex-shrink:0;margin-top:1px"></i>
+        <span>予約メールの登録はClaudeに貼り付けるだけ！<br>claude.aiのチャットに予約確認メールをそのまま貼り付けると、内容を整理して登録をサポートします。</span>
+      </div>
+      <div id="reservations-list"></div>
+    </div>
+    <div id="res-import-view" style="display:none"></div>
+    <div id="res-form-view" style="display:none">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <button class="btn-secondary" onclick="hideResForm()"><i class="ti ti-arrow-left"></i> 戻る</button>
+        <span class="section-title" style="font-size:15px" id="res-form-title">予約を手動で追加</span>
+      </div>
+      <input type="hidden" id="r-edit-id" value="">
+      <div class="form-group">
+        <label class="form-label">種別</label>
+        <div class="res-type-grid">
+          <button class="res-type-btn active" onclick="selectResType(this,'hotel')" data-type="hotel"><i class="ti ti-building"></i>宿泊</button>
+          <button class="res-type-btn" onclick="selectResType(this,'flight')" data-type="flight"><i class="ti ti-plane"></i>航空券</button>
+          <button class="res-type-btn" onclick="selectResType(this,'train')" data-type="train"><i class="ti ti-train"></i>新幹線・電車</button>
+          <button class="res-type-btn" onclick="selectResType(this,'activity')" data-type="activity"><i class="ti ti-ticket"></i>体験・施設</button>
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">名称</label><input type="text" id="r-name" placeholder="例：よろづや、東京→大阪 のぞみ"></div>
+      <div class="row2">
+        <div class="form-group"><label class="form-label">チェックイン / 出発日</label><input type="date" id="r-date-from"></div>
+        <div class="form-group"><label class="form-label">チェックアウト / 到着日</label><input type="date" id="r-date-to"></div>
+      </div>
+      <div class="form-group"><label class="form-label">時刻（任意）</label><input type="time" id="r-time"></div>
+      <div class="form-group">
+        <label class="form-label">金額（任意）</label>
+        <div style="position:relative">
+          <span style="position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:14px;pointer-events:none">¥</span>
+          <input type="number" id="r-price" placeholder="例：45000" style="padding-left:28px">
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">支払いタイミング（任意）</label><select id="r-payment"><option value="">未設定</option><option value="現地決済">現地決済</option><option value="クレジットカード決済済み">クレジットカード決済済み</option><option value="事前振込済み">事前振込済み</option><option value="当日現金払い">当日現金払い</option><option value="その他">その他</option></select></div>
+      <div class="form-group"><label class="form-label">予約番号（任意）</label><input type="text" id="r-confirm" placeholder="例：ABC-12345"></div>
+      <div class="form-group"><label class="form-label">場所・区間（任意）</label><input type="text" id="r-location" placeholder="例：群馬県渋川市伊香保町"></div>
+      <div class="form-group"><label class="form-label">メモ（任意）</label><textarea id="r-memo" style="min-height:80px" placeholder="例：チェックイン15時〜。キャンセル期限3日前"></textarea></div>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="saveReservation()"><i class="ti ti-check"></i> 保存する</button>
+        <button class="btn-secondary" onclick="hideResForm()">キャンセル</button>
+      </div>
+      <div class="save-msg" id="res-save-msg">✓ 保存しました！</div>
+    </div>
+  </div>
+
+  <!-- SAVINGS -->
+  <div id="panel-savings" class="panel">
+    <div class="section-header">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="18" fill="#fef9e7"/>
+          <ellipse cx="18" cy="22" rx="10" ry="8" fill="#f0b429" opacity=".8"/>
+          <path d="M8 22C8 16.48 12.48 12 18 12C23.52 12 28 16.48 28 22" fill="#f0b429"/>
+          <circle cx="22" cy="19" r="2" fill="white"/>
+          <path d="M17 8V13" stroke="#e8945a" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="section-title">積立管理</span>
+      </div>
+    </div>
+
+    <!-- Goal setting -->
+    <div id="savings-goal-box" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:16px;box-shadow:var(--shadow)">
+      <div style="font-size:13px;font-weight:500;color:var(--text2);margin-bottom:12px;display:flex;align-items:center;gap:6px"><i class="ti ti-target"></i> 月々の積立目標</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div style="position:relative;flex:1">
+          <span style="position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:14px;pointer-events:none">¥</span>
+          <input type="number" id="savings-goal-input" placeholder="例：30000" style="padding-left:28px">
+        </div>
+        <button class="btn-primary" onclick="saveGoal()"><i class="ti ti-check"></i> 設定</button>
+      </div>
+      <div id="savings-goal-display" style="margin-top:12px;display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <span style="font-size:13px;color:var(--text2)">今月の進捗</span>
+          <span id="savings-progress-text" style="font-size:13px;font-weight:500;color:var(--accent)"></span>
+        </div>
+        <div style="background:var(--surface2);border-radius:99px;height:10px;overflow:hidden">
+          <div id="savings-progress-bar" style="height:100%;background:var(--accent);border-radius:99px;transition:width .4s;width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add deposit -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:16px;box-shadow:var(--shadow)">
+      <div style="font-size:13px;font-weight:500;color:var(--text2);margin-bottom:12px;display:flex;align-items:center;gap:6px"><i class="ti ti-plus"></i> 入金を記録</div>
+      <div class="row2">
+        <div class="form-group"><label class="form-label">日付</label><input type="date" id="deposit-date"></div>
+        <div class="form-group">
+          <label class="form-label">金額</label>
+          <div style="position:relative">
+            <span style="position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:14px;pointer-events:none">¥</span>
+            <input type="number" id="deposit-amount" placeholder="例：30000" style="padding-left:28px">
+          </div>
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">メモ（任意）</label><input type="text" id="deposit-memo" placeholder="例：給料日分、ボーナス"></div>
+      <button class="btn-primary" onclick="saveDeposit()"><i class="ti ti-check"></i> 記録する</button>
+    </div>
+
+    <!-- Summary -->
+    <div id="savings-summary" style="display:none;background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);padding:16px;margin-bottom:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
+        <div><div style="font-size:11px;color:var(--accent);margin-bottom:4px">今月の入金</div><div id="sum-this-month" style="font-size:17px;font-weight:600;color:var(--accent)">¥0</div></div>
+        <div><div style="font-size:11px;color:var(--accent);margin-bottom:4px">累計入金</div><div id="sum-total" style="font-size:17px;font-weight:600;color:var(--accent)">¥0</div></div>
+        <div><div style="font-size:11px;color:var(--accent);margin-bottom:4px">入金回数</div><div id="sum-count" style="font-size:17px;font-weight:600;color:var(--accent)">0回</div></div>
+      </div>
+    </div>
+
+    <!-- Deposit list -->
+    <div id="deposit-list"></div>
+  </div>
+
+  <!-- EXPORT -->
+  <div id="panel-export" class="panel">
+    <div class="section-header">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="18" fill="#f0edfb"/>
+          <path d="M12 24L15 16L20 11L25 16L20 21L12 24Z" fill="#9b8ec4" opacity=".8"/>
+          <circle cx="24" cy="12" r="3" fill="#f0b429"/>
+          <path d="M8 28L11 25" stroke="#9b8ec4" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="section-title">AI出力</span>
+      </div>
+    </div>
+    <div class="export-section">
+      <div class="export-title"><i class="ti ti-camera"></i> Instagram投稿文</div>
+      <div class="export-desc">エントリーを選んでInstagram用キャプション＋ハッシュタグを生成します</div>
+      <select id="ig-select" style="margin-bottom:12px"><option value="">— エントリーを選択 —</option></select>
+      <button class="btn-secondary" onclick="generateIG()"><i class="ti ti-sparkles"></i> 生成する</button>
+      <div class="ai-output" id="ig-output" style="display:none"></div>
+      <button class="btn-secondary" id="ig-copy" style="display:none;margin-top:10px" onclick="copyText('ig-output')"><i class="ti ti-copy"></i> コピー</button>
+    </div>
+    <div class="export-section">
+      <div class="export-title"><i class="ti ti-notebook"></i> note記事</div>
+      <div class="export-desc">複数エントリーを選んでnote用エッセイ記事を生成します</div>
+      <div class="note-checks" id="note-checks"></div>
+      <button class="btn-secondary" onclick="generateNote()"><i class="ti ti-sparkles"></i> 記事を生成</button>
+      <div class="ai-output" id="note-output" style="display:none"></div>
+      <button class="btn-secondary" id="note-copy" style="display:none;margin-top:10px" onclick="copyText('note-output')"><i class="ti ti-copy"></i> コピー</button>
+    </div>
+    <div class="export-section">
+      <div class="export-title"><i class="ti ti-chart-bar"></i> 旅サマリー</div>
+      <div class="export-desc">全エントリーから旅の統計と振り返りコメントを生成します</div>
+      <button class="btn-secondary" onclick="generateSummary()"><i class="ti ti-sparkles"></i> サマリーを生成</button>
+      <div class="ai-output" id="sum-output" style="display:none"></div>
+      <button class="btn-secondary" id="sum-copy" style="display:none;margin-top:10px" onclick="copyText('sum-output')"><i class="ti ti-copy"></i> コピー</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="overlay" class="overlay" style="display:none" onclick="closeModal(event)">
+  <div class="modal" id="modal-box"></div>
+</div>
+
+<!-- DETAIL PAGE -->
+<div id="detail-page" class="detail-page" style="display:none">
+  <div class="detail-page-header">
+    <button class="detail-page-back" onclick="closeDetailPage()"><i class="ti ti-arrow-left"></i></button>
+    <span class="detail-page-title" id="dp-title"></span>
+    <button class="btn-secondary" style="font-size:12px;padding:6px 12px" id="dp-delete-btn"><i class="ti ti-trash"></i></button>
+  </div>
+  <div id="dp-photos"></div>
+  <div class="detail-body-wrap">
+    <div class="detail-meta" id="dp-meta"></div>
+    <div class="detail-title" id="dp-title2"></div>
+    <div class="detail-text" id="dp-text"></div>
+    <div id="dp-hotel"></div>
+    <div id="dp-tags"></div>
+    <div id="dp-reactions"></div>
+    <div id="dp-comments"></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" style="display:none" onclick="closeLightboxBg(event)">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="ti ti-x"></i></button>
+  <button class="lightbox-nav prev" id="lb-prev" onclick="lightboxNav(-1)"><i class="ti ti-chevron-left"></i></button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav next" id="lb-next" onclick="lightboxNav(1)"><i class="ti ti-chevron-right"></i></button>
+  <div class="lightbox-counter" id="lb-counter"></div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<script>
+let entries=[], reservations=[], currentPhotos=[], selectedMood='', selectedResType='hotel', selectedAuthor='';
+let parsedReservation=null;
+const hotelRatings={overall:0,clean:0,location:0,service:0,value:0};
+const starKeys=['overall','clean','location','service','value'];
+const resTypeConfig={
+  hotel:{icon:'ti-building',label:'宿泊',badge:'badge-hotel',iconClass:''},
+  flight:{icon:'ti-plane',label:'航空券',badge:'badge-flight',iconClass:'flight'},
+  train:{icon:'ti-train',label:'新幹線・電車',badge:'badge-train',iconClass:'train'},
+  activity:{icon:'ti-ticket',label:'体験・施設',badge:'badge-activity',iconClass:'activity'},
+  other:{icon:'ti-dots',label:'その他',badge:'badge-other',iconClass:'other'}
+};
+
+// STORAGE (Firebase)
+function loadAll(){ /* Firebase uses realtime listeners */ }
+function saveEntries(){ /* handled per-entry */ }
+function saveReservations(){ /* handled per-entry */ }
+
+// STARS
+function initStars(){
+  starKeys.forEach(key=>{
+    const el=document.getElementById('s-'+key);el.innerHTML='';
+    for(let i=1;i<=5;i++){
+      const s=document.createElement('span');s.className='star';s.textContent='★';
+      s.onmouseenter=()=>hoverStars(key,i);
+      s.onmouseleave=()=>renderStars(key,hotelRatings[key]);
+      s.onclick=()=>{hotelRatings[key]=i;renderStars(key,i);document.getElementById('sv-'+key).textContent=i+'/5';};
+      el.appendChild(s);
+    }
+  });
+}
+function hoverStars(key,n){document.querySelectorAll('#s-'+key+' .star').forEach((s,i)=>{s.className='star'+(i<n?' hover':'');});}
+function renderStars(key,n){document.querySelectorAll('#s-'+key+' .star').forEach((s,i)=>{s.className='star'+(i<n?' lit':'');});}
+function starsDisplay(n,max=5){return'★'.repeat(n)+'☆'.repeat(max-n);}
+
+// MOOD
+function selectMood(btn,mood){document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selectedMood=mood;}
+function selectAuthor(author){
+  selectedAuthor=author;
+  document.getElementById('author-inaba').className='author-btn'+(author==='inaba'?' active-inaba':'');
+  document.getElementById('author-tamura').className='author-btn'+(author==='tamura'?' active-tamura':'');
+}
+
+// PHOTOS
+function addPhotos(input){
+  Array.from(input.files).forEach(file=>{
+    const r=new FileReader();
+    r.onload=e=>{currentPhotos.push({data:e.target.result,file:file});renderPhotoGrid();};
+    r.readAsDataURL(file);
+  });input.value='';
+}
+function renderPhotoGrid(){
+  document.getElementById('photo-grid').innerHTML=currentPhotos.map((p,i)=>`<div class="photo-thumb"><img src="${p.data}" alt=""><button class="photo-del" onclick="removePhoto(${i})">✕</button></div>`).join('');
+}
+function removePhoto(i){currentPhotos.splice(i,1);renderPhotoGrid();}
+
+// SAVE ENTRY
+// Cloudinary写真アップロード
+const CLOUDINARY_CLOUD = 'du4m3kjjg';
+const CLOUDINARY_PRESET = 'tabinikki';
+async function uploadToCloudinary(file) {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', CLOUDINARY_PRESET);
+  const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/image/upload`, {
+    method: 'POST',
+    body: formData
+  });
+  const data = await res.json();
+  return data.secure_url;
+}
+
+async function saveEntry(){
+  const date=document.getElementById('f-date').value;
+  const place=document.getElementById('f-place').value;
+  const body=document.getElementById('f-body').value;
+  if(!date||!place||!body){alert('日付・場所・感想は必須です');return;}
+  const hotelOpen=document.getElementById('hotel-fields').classList.contains('open');
+  const hotel=hotelOpen?{name:document.getElementById('h-name').value,memo:document.getElementById('h-memo').value,ratings:{...hotelRatings}}:null;
+  const entryId = Date.now();
+  const btn = document.querySelector('.btn-primary');
+  btn.textContent='保存中...';btn.disabled=true;
+  // Upload photos to Cloudinary
+  let photoUrls = [];
+  for(let i=0;i<currentPhotos.length;i++){
+    const p=currentPhotos[i];
+    if(p.file){
+      try{
+        const url=await uploadToCloudinary(p.file);
+        photoUrls.push(url);
+      }catch(e){ photoUrls.push(p.data); } // fallback to base64
+    } else {
+      photoUrls.push(p.data);
+    }
+  }
+  const newEntry={id:entryId,date,place,title:document.getElementById('f-title').value||place,body,author:selectedAuthor,mood:selectedMood,tags:document.getElementById('f-tags').value.split(',').map(t=>t.trim()).filter(Boolean),photos:photoUrls,hotel};
+  entries.unshift(newEntry);
+  if(window.fbSaveEntry) window.fbSaveEntry(newEntry);
+  btn.innerHTML='<i class="ti ti-check"></i> 保存する';btn.disabled=false;
+  clearForm();
+  showToast('保存しました！');
+  refreshExportSelects();
+}
+function clearForm(){
+  ['f-date','f-place','f-title','f-body','f-tags','h-name','h-memo'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('active'));
+  selectedMood='';selectedAuthor='';currentPhotos=[];renderPhotoGrid();document.getElementById('author-inaba').className='author-btn';document.getElementById('author-tamura').className='author-btn';
+  starKeys.forEach(k=>{hotelRatings[k]=0;renderStars(k,0);document.getElementById('sv-'+k).textContent='−';});
+  if(document.getElementById('hotel-fields').classList.contains('open'))toggleHotel();
+  document.getElementById('f-date').value=new Date(Date.now()+9*60*60*1000).toISOString().split('T')[0];
+}
+function toggleHotel(){
+  const f=document.getElementById('hotel-fields'),b=document.getElementById('hotel-toggle-btn'),open=f.classList.toggle('open');
+  b.innerHTML=open?'<i class="ti ti-building"></i> − ホテル評価を閉じる':'<i class="ti ti-building"></i> ＋ ホテルの評価を追加';
+}
+
+// CALENDAR
+let calYear=new Date().getFullYear(), calMonth=new Date().getMonth();
+let currentView='cal', selectedCalDate=null;
+
+function setView(view){
+  currentView=view;
+  document.getElementById('view-btn-cal').className='view-btn'+(view==='cal'?' active':'');
+  document.getElementById('view-btn-list').className='view-btn'+(view==='list'?' active':'');
+  document.getElementById('calendar-wrap').style.display=view==='cal'?'block':'none';
+  renderEntries();
+}
+
+function renderCalendar(){
+  const wrap=document.getElementById('calendar-wrap');
+  if(!wrap)return;
+  const year=calYear, month=calMonth;
+  const firstDay=new Date(year,month,1).getDay();
+  const daysInMonth=new Date(year,month+1,0).getDate();
+  const today=new Date(Date.now()+9*60*60*1000).toISOString().split('T')[0];
+  const monthStr=`${year}-${String(month+1).padStart(2,'0')}`;
+
+  // Build entry map for this month
+  const entryMap={};
+  entries.forEach(e=>{
+    if(e.date&&e.date.startsWith(monthStr)){
+      if(!entryMap[e.date])entryMap[e.date]=[];
+      entryMap[e.date].push(e);
+    }
+  });
+
+  const dows=['日','月','火','水','木','金','土'];
+  let html=`<div class="cal-header">
+    <button class="cal-nav" onclick="calPrev()"><i class="ti ti-chevron-left"></i></button>
+    <span class="cal-title" style="font-family:'Nunito','Noto Sans JP',sans-serif;font-weight:800;font-size:16px;color:var(--text)">${year}年${month+1}月</span>
+    <button class="cal-nav" onclick="calNext()"><i class="ti ti-chevron-right"></i></button>
+  </div>
+  <div class="cal-grid">
+    ${dows.map(d=>`<div class="cal-dow">${d}</div>`).join('')}`;
+
+  // Empty cells before first day
+  for(let i=0;i<firstDay;i++) html+=`<div class="cal-day empty"></div>`;
+
+  for(let d=1;d<=daysInMonth;d++){
+    const dateStr=`${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dayEntries=entryMap[dateStr]||[];
+    const isToday=dateStr===today;
+    const isSelected=dateStr===selectedCalDate;
+    const hasEntry=dayEntries.length>0;
+    let cls='cal-day';
+    if(isSelected)cls+=' selected';
+    else if(isToday)cls+=' today';
+    if(hasEntry)cls+=' has-entry';
+    if(!hasEntry&&!isToday)cls+=' empty';
+
+    const dots=dayEntries.slice(0,3).map(e=>{
+      const dotCls=e.author==='inaba'?'cal-dot cal-dot-inaba':e.author==='tamura'?'cal-dot cal-dot-tamura':'cal-dot cal-dot-default';
+      return `<span class="${dotCls}"></span>`;
+    }).join('');
+
+    html+=`<div class="${cls}" onclick="${hasEntry?`selectCalDate('${dateStr}')`:isToday?`selectCalDate('${dateStr}')`:''}">${d}${dots?`<div class="cal-dot-row">${dots}</div>`:''}
+    </div>`;
+  }
+  html+=`</div>`;
+  wrap.innerHTML=html;
+}
+
+function calPrev(){ calMonth--; if(calMonth<0){calMonth=11;calYear--;} renderCalendar(); }
+function calNext(){ calMonth++; if(calMonth>11){calMonth=0;calYear++;} renderCalendar(); }
+function selectCalDate(date){
+  selectedCalDate=selectedCalDate===date?null:date;
+  renderCalendar();
+  renderEntries();
+}
+
+// RENDER ENTRIES
+const MONTHS_JP = ['','1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+const MONTHS_EN = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function formatMonthLabel(ym){
+  const [y,m] = ym.split('-');
+  return `${MONTHS_EN[parseInt(m)].toUpperCase()} ${y} ／ ${y}年${MONTHS_JP[parseInt(m)]}`;
+}
+function renderEntries(){
+  if(currentView==='cal') renderCalendar();
+  const el=document.getElementById('entries-list');
+  let filtered=entries;
+  if(currentView==='cal'&&selectedCalDate){ filtered=entries.filter(e=>e.date===selectedCalDate); }
+  if(!filtered.length){
+    el.innerHTML=selectedCalDate?`<div class="empty-state" style="padding:20px"><p style="font-size:13px;color:var(--text3)">${selectedCalDate}の記録はありません</p></div>`:'<div class="empty-state"><i class="ti ti-notebook"></i><p>まだ記録がありません<br>「記録」タブから旅の思い出を追加しましょう</p></div>';
+    return;
+  }
+  // Group entries by month with labels
+  const byMonthE={};
+  filtered.forEach(e=>{
+    const m=e.date?e.date.slice(0,7):'unknown';
+    if(!byMonthE[m])byMonthE[m]=[];
+    byMonthE[m].push(e);
+  });
+  let entriesHtml='';
+  Object.entries(byMonthE).sort((a,b)=>b[0].localeCompare(a[0])).forEach(([month,items])=>{
+    if(Object.keys(byMonthE).length>1) entriesHtml+=`<div class="list-label">${formatMonthLabel(month)}</div>`;
+    items.forEach(e=>{ entriesHtml+=`
+    <div class="entry-card" onclick="openDetailPage(${e.id})">
+      <div class="entry-meta">
+        <span class="entry-date">${e.date}</span>
+        <span class="entry-place"><i class="ti ti-map-pin" style="font-size:12px"></i>${e.place}</span>
+        ${e.author?`<span style="font-size:11px;padding:2px 8px;border-radius:99px;font-weight:500;background:${e.author==='inaba'?'#e8f0eb':'#f5ede5'};color:${e.author==='inaba'?'#2d5a3d':'#8b5e3c'}">${e.author==='inaba'?'Inaba':'Tamura'}</span>`:''}
+        ${e.mood?`<span style="font-size:12px">${e.mood}</span>`:''}
+      </div>
+      <div class="entry-title">${e.title}</div>
+      <div class="entry-body">${e.body}</div>
+      ${e.hotel&&e.hotel.name?`<div class="hotel-mini"><i class="ti ti-building" style="font-size:12px"></i>${e.hotel.name}<span class="mstars">${starsDisplay(e.hotel.ratings.overall)}</span></div>`:''}
+      ${e.tags.length?'<div style="margin-top:8px">'+e.tags.map(t=>`<span class="tag">${t}</span>`).join('')+'</div>':''}
+      ${reactionHTML(e.id, true)}
+      ${e.photos&&e.photos.length?`<div style="margin-top:10px;display:grid;grid-template-columns:repeat(${Math.min(e.photos.length,3)},1fr);gap:4px;border-radius:8px;overflow:hidden">${e.photos.slice(0,3).map((p,i)=>`<div style="aspect-ratio:1;overflow:hidden;cursor:pointer;position:relative" onclick="event.stopPropagation();openDetailPage(${e.id})"><img src="${p}" style="width:100%;height:100%;object-fit:cover;transition:transform .2s">${i===2&&e.photos.length>3?`<div style="position:absolute;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:600">+${e.photos.length-3}</div>`:''}</div>`).join('')}</div>`:''}
+    </div>`;});});  el.innerHTML=entriesHtml;
+}
+
+function openEntryModal(id){
+  const e=entries.find(x=>x.id===id);if(!e)return;
+  const cats=[['overall','総合'],['clean','清潔さ'],['location','立地'],['service','サービス'],['value','コスパ']];
+  const hotelHTML=e.hotel&&e.hotel.name?`
+    <div class="modal-hotel">
+      <div class="modal-hotel-name"><i class="ti ti-building"></i>${e.hotel.name}</div>
+      ${cats.map(([k,l])=>e.hotel.ratings[k]?`<div class="modal-star-row"><span class="modal-star-label">${l}</span><span class="modal-stars">${starsDisplay(e.hotel.ratings[k])}</span><span style="font-size:12px;color:#7a5a00;margin-left:4px">${e.hotel.ratings[k]}/5</span></div>`:'').join('')}
+      ${e.hotel.memo?`<div class="modal-hotel-memo">${e.hotel.memo}</div>`:''}
+    </div>`:'';
+  document.getElementById('modal-box').innerHTML=`
+    <div class="modal-header">
+      <div><div class="modal-date">${e.date} · ${e.place} ${e.author?'· '+(e.author==='inaba'?'Inaba':'Tamura'):''} ${e.mood||''}</div><div class="modal-title">${e.title}</div></div>
+      <button class="modal-close" onclick="document.getElementById('overlay').style.display='none'"><i class="ti ti-x"></i></button>
+    </div>
+    ${e.photos&&e.photos.length?`<div class="modal-photos">${e.photos.map(p=>`<div class="modal-photo"><img src="${p}" alt=""></div>`).join('')}</div>`:''}
+    <div class="modal-body">${e.body.replace(/\n/g,'<br>')}</div>
+    ${hotelHTML}
+    ${e.tags.length?'<div style="margin-top:12px">'+e.tags.map(t=>`<span class="tag">${t}</span>`).join('')+'</div>':''}
+    ${reactionHTML(e.id, false)}
+    ${commentHTML(e.id)}
+    <div class="modal-actions" style="margin-top:14px"><button class="btn-secondary" style="font-size:12px" onclick="deleteEntry(${e.id})"><i class="ti ti-trash"></i> 削除</button></div>`;
+
+  document.getElementById('overlay').style.display='flex';
+}
+function deleteEntry(id){if(!confirm('このエントリーを削除しますか？'))return;entries=entries.filter(e=>e.id!==id);if(window.fbDeleteEntry)window.fbDeleteEntry(id);closeDetailPage();document.getElementById('overlay').style.display='none';renderEntries();refreshExportSelects();}
+
+// RESERVATIONS
+function showImportView(){document.getElementById('res-list-view').style.display='none';document.getElementById('res-import-view').style.display='block';}
+function hideImportView(){document.getElementById('res-import-view').style.display='none';document.getElementById('res-list-view').style.display='block';document.getElementById('import-preview').style.display='none';document.getElementById('import-text').value='';}
+function showResForm(){document.getElementById('res-list-view').style.display='none';document.getElementById('res-form-view').style.display='block';}
+function hideResForm(){document.getElementById('res-form-view').style.display='none';document.getElementById('res-list-view').style.display='block';}
+function selectResType(btn,type){document.querySelectorAll('.res-type-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selectedResType=type;}
+
+async function parseReservation(){
+  const text=document.getElementById('import-text').value.trim();
+  if(!text){alert('テキストを入力してください');return;}
+  document.getElementById('import-loading').style.display='block';
+  document.getElementById('import-preview').style.display='none';
+  const prompt=`以下の予約テキストから情報を抽出してJSON形式のみで返してください（説明文・マークダウン不要）：\n${text}\n\n{"type":"hotel/flight/train/activity/other","name":"名称","dateFrom":"YYYY-MM-DD","dateTo":"YYYY-MM-DD","time":"HH:MM or ''","price":数値orNull,"confirm":"予約番号","location":"場所","memo":"補足情報"}`;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,messages:[{role:'user',content:prompt}]})});
+    const d=await res.json();
+    const raw=d.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
+    parsedReservation=JSON.parse(raw);
+    renderPreview(parsedReservation);
+  }catch(e){alert('読み取りに失敗しました。テキストを確認して再試行してください。');}
+  document.getElementById('import-loading').style.display='none';
+}
+function renderPreview(r){
+  const cfg=resTypeConfig[r.type]||resTypeConfig.other;
+  const rows=[['種別',`<span class="res-badge ${cfg.badge}">${cfg.label}</span>`],['名称',r.name||'−'],['チェックイン',r.dateFrom+(r.time?' '+r.time:'')],['チェックアウト',r.dateTo&&r.dateTo!==r.dateFrom?r.dateTo:'−'],['予約番号',r.confirm||'−'],['場所',r.location||'−'],['金額',r.price?'¥'+Number(r.price).toLocaleString():'−'],['メモ',r.memo||'−']];
+  document.getElementById('preview-content').innerHTML=rows.map(([k,v])=>`<div class="preview-row"><span class="preview-key">${k}</span><span class="preview-val">${v}</span></div>`).join('');
+  document.getElementById('import-preview').style.display='block';
+}
+function confirmImport(){
+  if(!parsedReservation)return;
+  const importedRes={id:Date.now(),...parsedReservation};
+  reservations.push(importedRes);
+  reservations.sort((a,b)=>a.dateFrom.localeCompare(b.dateFrom));
+  if(window.fbSaveReservation)window.fbSaveReservation(importedRes);
+  parsedReservation=null;
+  hideImportView();renderReservations();
+  alert('✓ 予約を登録しました！');
+}
+function saveReservation(){
+  const name=document.getElementById('r-name').value,dateFrom=document.getElementById('r-date-from').value;
+  if(!name||!dateFrom){alert('名称と日付は必須です');return;}
+  const price=document.getElementById('r-price').value;
+  const editId=document.getElementById('r-edit-id').value;
+  const data={type:selectedResType,name,dateFrom,dateTo:document.getElementById('r-date-to').value,time:document.getElementById('r-time').value,price:price?parseInt(price):null,payment:document.getElementById('r-payment').value,confirm:document.getElementById('r-confirm').value,location:document.getElementById('r-location').value,memo:document.getElementById('r-memo').value};
+  if(editId){
+    const idx=reservations.findIndex(r=>r.id===parseInt(editId));
+    if(idx!==-1){reservations[idx]={...reservations[idx],...data};if(window.fbSaveReservation)window.fbSaveReservation(reservations[idx]);}
+  }else{
+    const newRes={id:Date.now(),...data};reservations.push(newRes);if(window.fbSaveReservation)window.fbSaveReservation(newRes);
+  }
+  reservations.sort((a,b)=>a.dateFrom.localeCompare(b.dateFrom));
+  const resToSave=editId?reservations.find(r=>r.id===parseInt(editId)):{...data,id:reservations[reservations.length-1]?.id||Date.now()};
+  if(window.fbSaveReservation&&resToSave)window.fbSaveReservation(resToSave);
+  ['r-name','r-date-from','r-date-to','r-time','r-price','r-confirm','r-location','r-memo','r-edit-id'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('r-payment').value='';;
+  document.querySelectorAll('.res-type-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.res-type-btn[data-type="hotel"]').classList.add('active');
+  selectedResType='hotel';
+  document.getElementById('res-form-title').textContent='予約を手動で追加';
+  const m=document.getElementById('res-save-msg');m.style.display='block';
+  setTimeout(()=>{m.style.display='none';hideResForm();renderReservations();},1200);
+}
+function editReservation(id){
+  const r=reservations.find(x=>x.id===id);if(!r)return;
+  document.getElementById('overlay').style.display='none';
+  document.getElementById('r-edit-id').value=id;
+  document.getElementById('r-name').value=r.name||'';
+  document.getElementById('r-date-from').value=r.dateFrom||'';
+  document.getElementById('r-date-to').value=r.dateTo||'';
+  document.getElementById('r-time').value=r.time||'';
+  document.getElementById('r-price').value=r.price||'';
+  document.getElementById('r-confirm').value=r.confirm||'';
+  document.getElementById('r-location').value=r.location||'';
+  document.getElementById('r-memo').value=r.memo||'';
+  document.getElementById('r-payment').value=r.payment||'';
+  document.querySelectorAll('.res-type-btn').forEach(b=>b.classList.remove('active'));
+  const typeBtn=document.querySelector(`.res-type-btn[data-type="${r.type}"]`);
+  if(typeBtn)typeBtn.classList.add('active');
+  selectedResType=r.type||'hotel';
+  document.getElementById('res-form-title').textContent='予約を編集';
+  document.getElementById('res-list-view').style.display='none';
+  document.getElementById('res-form-view').style.display='block';
+  window.scrollTo(0,0);
+}
+function renderReservations(){
+  const el=document.getElementById('reservations-list');
+  if(!reservations.length){el.innerHTML=`<div class="empty-state">
+  <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:12px">
+    <circle cx="60" cy="60" r="56" fill="#fff5f0"/>
+    <rect x="28" y="38" width="64" height="52" rx="8" fill="#e0f5f1" stroke="#3a9e8a" stroke-width="2"/>
+    <rect x="28" y="38" width="64" height="16" rx="8" fill="#3a9e8a"/>
+    <rect x="38" y="44" width="8" height="8" rx="2" fill="white" opacity=".8"/>
+    <rect x="54" y="44" width="8" height="8" rx="2" fill="white" opacity=".8"/>
+    <rect x="70" y="44" width="8" height="8" rx="2" fill="white" opacity=".8"/>
+    <rect x="38" y="62" width="10" height="10" rx="2" fill="#f0b429"/>
+    <rect x="55" y="62" width="10" height="10" rx="2" fill="#fde8d8" stroke="#e8945a" stroke-width="1.5"/>
+    <rect x="72" y="62" width="10" height="10" rx="2" fill="#fde8d8" stroke="#e8945a" stroke-width="1.5"/>
+    <rect x="38" y="78" width="10" height="10" rx="2" fill="#fde8d8" stroke="#e8945a" stroke-width="1.5"/>
+    <rect x="55" y="78" width="10" height="10" rx="2" fill="#3a9e8a" opacity=".3"/>
+  </svg>
+  <p>予約情報がありません<br>右上のボタンから登録しましょう</p>
+</div>`;return;}
+  const today=new Date().toISOString().split('T')[0];
+  const upcoming=reservations.filter(r=>r.dateFrom>=today);
+  const past=reservations.filter(r=>r.dateFrom<today);
+  let html='';
+  if(upcoming.length){html+='<div class="list-label">今後の予約</div>'+upcoming.map(resCardHTML).join('');}
+  if(past.length){html+=`<div class="list-label" style="margin-top:${upcoming.length?'24px':'0'}">過去の予約</div>`+past.map(resCardHTML).join('');}
+  el.innerHTML=html;
+}
+function resCardHTML(r){
+  const cfg=resTypeConfig[r.type]||resTypeConfig.other;
+  const dateStr=r.dateTo&&r.dateTo!==r.dateFrom?`${r.dateFrom} 〜 ${r.dateTo}`:r.dateFrom;
+  return `<div class="res-card" onclick="openResModal(${r.id})">
+    <div class="res-icon ${cfg.iconClass}"><i class="ti ${cfg.icon}"></i></div>
+    <div class="res-body">
+      <div style="display:flex;align-items:center;gap:7px;margin-bottom:6px"><span class="res-badge ${cfg.badge}">${cfg.label}</span></div>
+      <div class="res-name">${r.name}</div>
+      <div style="display:flex;align-items:baseline;gap:4px;margin:6px 0 4px">
+        <i class="ti ti-calendar" style="font-size:14px;color:var(--accent)"></i>
+        <span style="font-size:15px;font-weight:500;color:var(--text)">${dateStr}${r.time?' <span style="color:var(--text2);font-weight:400">'+r.time+'</span>':''}</span>
+      </div>
+      ${r.price?`<div style="display:flex;align-items:baseline;gap:3px;margin-bottom:4px"><i class="ti ti-coin" style="font-size:13px;color:var(--accent2)"></i><span style="font-size:17px;font-weight:600;color:var(--accent2)">¥${Number(r.price).toLocaleString()}</span></div>`:''}
+      ${r.location?`<div class="res-date-line"><i class="ti ti-map-pin" style="font-size:12px"></i>${r.location}</div>`:''}
+      ${r.payment?`<div style="font-size:11px;color:var(--text3);margin-top:2px"><i class="ti ti-credit-card" style="font-size:11px"></i> ${r.payment}</div>`:''}
+      ${r.confirm?`<div class="res-confirm">No. ${r.confirm}</div>`:''}
+    </div>
+  </div>`;
+}
+function openResModal(id){
+  const r=reservations.find(x=>x.id===id);if(!r)return;
+  const cfg=resTypeConfig[r.type]||resTypeConfig.other;
+  const dateStr=r.dateTo&&r.dateTo!==r.dateFrom?`${r.dateFrom} 〜 ${r.dateTo}`:r.dateFrom;
+  document.getElementById('modal-box').innerHTML=`
+    <div class="modal-header">
+      <div><span class="res-badge ${cfg.badge}" style="margin-bottom:8px;display:inline-block">${cfg.label}</span><div class="modal-title">${r.name}</div></div>
+      <button class="modal-close" onclick="document.getElementById('overlay').style.display='none'"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-res-detail">
+      <div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-calendar"></i> 日程</span><span class="modal-res-val">${dateStr}${r.time?' '+r.time:''}</span></div>
+      ${r.location?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-map-pin"></i> 場所</span><span class="modal-res-val">${r.location}</span></div>`:''}
+      ${r.price?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-coin"></i> 金額</span><span class="modal-res-val">¥${Number(r.price).toLocaleString()}</span></div>`:''}
+      ${r.payment?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-credit-card"></i> 支払い</span><span class="modal-res-val">${r.payment}</span></div>`:''}
+      ${r.confirm?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-hash"></i> 予約番号</span><span class="modal-res-val" style="font-family:monospace">${r.confirm}</span></div>`:''}
+      ${r.memo?`<div class="modal-res-row"><span class="modal-res-label"><i class="ti ti-notes"></i> メモ</span><span class="modal-res-val">${r.memo.replace(/\n/g,'<br>')}</span></div>`:''}
+    </div>
+    <div class="modal-actions">
+      <button class="btn-primary" style="font-size:13px" onclick="editReservation(${r.id})"><i class="ti ti-edit"></i> 編集</button>
+      <button class="btn-secondary" style="font-size:12px" onclick="deleteReservation(${r.id})"><i class="ti ti-trash"></i> 削除</button>
+    </div>`;
+  document.getElementById('overlay').style.display='flex';
+}
+function deleteReservation(id){if(!confirm('この予約を削除しますか？'))return;reservations=reservations.filter(r=>r.id!==id);if(window.fbDeleteReservation)window.fbDeleteReservation(id);document.getElementById('overlay').style.display='none';renderReservations();}
+function closeModal(ev){if(ev.target.id==='overlay')document.getElementById('overlay').style.display='none';}
+
+// EXPORT
+function refreshExportSelects(){
+  document.getElementById('ig-select').innerHTML='<option value="">— エントリーを選択 —</option>'+entries.map(e=>`<option value="${e.id}">${e.date} · ${e.title}</option>`).join('');
+  document.getElementById('note-checks').innerHTML=entries.map(e=>`<label class="note-check-label"><input type="checkbox" value="${e.id}" style="width:auto">${e.date.slice(5)} ${e.title.slice(0,12)}</label>`).join('');
+}
+async function callClaude(prompt){
+  const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})});
+  const d=await res.json();return d.content.map(c=>c.text||'').join('');
+}
+function hotelText(h){if(!h||!h.name)return '';const cats=[['overall','総合'],['clean','清潔さ'],['location','立地'],['service','サービス'],['value','コスパ']];return `宿泊先：${h.name}\n`+cats.filter(([k])=>h.ratings[k]).map(([k,l])=>`${l}：${'★'.repeat(h.ratings[k])}（${h.ratings[k]}/5）`).join('、')+(h.memo?`\nコメント：${h.memo}`:'');}
+async function generateIG(){
+  const id=parseInt(document.getElementById('ig-select').value);if(!id){alert('エントリーを選択してください');return;}
+  const e=entries.find(x=>x.id===id);
+  const out=document.getElementById('ig-output'),btn=document.getElementById('ig-copy');
+  out.style.display='block';out.className='ai-output generating';out.textContent='生成中...';btn.style.display='none';
+  const text=await callClaude(`以下の旅日記をInstagram投稿文に変換してください。\n日付：${e.date}、場所：${e.place}、気分：${e.mood||'未記入'}\n日記：${e.body}\n${e.hotel&&e.hotel.name?hotelText(e.hotel):''}\nタグ：${e.tags.join(', ')||'なし'}\n要件：魅力的で温かみのある文章150〜200字、改行活用、絵文字使用、最後に日本語ハッシュタグ10個以上、本文とハッシュタグの間は空行`);
+  out.className='ai-output';out.textContent=text;btn.style.display='inline-flex';
+}
+async function generateNote(){
+  const checked=[...document.querySelectorAll('#note-checks input:checked')].map(c=>parseInt(c.value));if(!checked.length){alert('エントリーを選択してください');return;}
+  const out=document.getElementById('note-output'),btn=document.getElementById('note-copy');
+  out.style.display='block';out.className='ai-output generating';out.textContent='記事を生成中...';btn.style.display='none';
+  const txt=entries.filter(e=>checked.includes(e.id)).map(e=>`【${e.date}/${e.place}】\n${e.body}${e.hotel&&e.hotel.name?'\n'+hotelText(e.hotel):''}`).join('\n\n---\n\n');
+  const text=await callClaude(`以下の旅日記をnote用エッセイ記事に仕上げてください。\n${txt}\n要件：タイトル・リード文・本文構成、1200〜1800字、見出しあり、臨場感ある文体`);
+  out.className='ai-output';out.textContent=text;btn.style.display='inline-flex';
+}
+async function generateSummary(){
+  if(!entries.length){alert('まだエントリーがありません');return;}
+  const out=document.getElementById('sum-output'),btn=document.getElementById('sum-copy');
+  out.style.display='block';out.className='ai-output generating';out.textContent='サマリーを生成中...';btn.style.display='none';
+  const hotels=entries.filter(e=>e.hotel&&e.hotel.name).map(e=>`${e.hotel.name}（総合${e.hotel.ratings.overall}/5）`);
+  const text=await callClaude(`旅日記からサマリーを作成してください。\nエントリー数：${entries.length}件\n訪問場所：${[...new Set(entries.map(e=>e.place))].join('、')}\n${hotels.length?'宿泊先：'+hotels.join('、'):''}\n日記：\n${entries.map(e=>`${e.date} ${e.place}: ${e.body.slice(0,80)}`).join('\n')}\n内容：①旅の統計 ②ハイライト3つ ③総括 ④次の旅へのメッセージ`);
+  out.className='ai-output';out.textContent=text;btn.style.display='inline-flex';
+}
+function copyText(id){navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>showToast('📋 コピーしました！'));}
+// DETAIL PAGE
+let dpCurrentEntry = null;
+let dpPhotoIndex = 0;
+
+function openDetailPage(id){
+  const e = entries.find(x => x.id === id);
+  if(!e) return;
+  dpCurrentEntry = e;
+  dpPhotoIndex = 0;
+  renderDetailPage(e);
+  document.getElementById('detail-page').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  window.scrollTo(0,0);
+}
+
+function closeDetailPage(){
+  document.getElementById('detail-page').style.display = 'none';
+  document.body.style.overflow = '';
+  dpCurrentEntry = null;
+}
+
+function renderDetailPage(e){
+  // Title
+  document.getElementById('dp-title').textContent = e.title;
+  document.getElementById('dp-title2').textContent = e.title;
+
+  // Delete button
+  document.getElementById('dp-delete-btn').onclick = () => deleteEntry(e.id);
+
+  // Photos
+  const photosEl = document.getElementById('dp-photos');
+  if(e.photos && e.photos.length){
+    if(e.photos.length === 1){
+      photosEl.innerHTML = `<div style="background:#1a1814;cursor:pointer" onclick="openLightbox(${JSON.stringify(e.photos)},0)"><img src="${e.photos[0]}" style="width:100%;max-height:60vh;object-fit:contain;display:block"></div>`;
+    } else {
+      const items = e.photos.map((p,i) => `
+        <div class="masonry-item" onclick="openLightbox(${JSON.stringify(e.photos)},${i})">
+          <img src="${p}" loading="lazy">
+        </div>`).join('');
+      photosEl.innerHTML = `<div class="masonry-grid">${items}</div>`;
+    }
+  } else {
+    photosEl.innerHTML = '';
+  }
+
+  // Meta
+  const isInaba = e.author === 'inaba';
+  const isTamura = e.author === 'tamura';
+  document.getElementById('dp-meta').innerHTML = `
+    <span style="font-size:12px;color:var(--text3)">${e.date}</span>
+    ${e.place ? `<span style="font-size:12px;font-weight:500;color:var(--accent2)"><i class="ti ti-map-pin" style="font-size:11px"></i> ${e.place}</span>` : ''}
+    ${e.author ? `<span style="font-size:11px;padding:2px 8px;border-radius:99px;font-weight:500;background:${isInaba?'#e8f0eb':'#f5ede5'};color:${isInaba?'#2d5a3d':'#8b5e3c'}">${isInaba?'Inaba':'Tamura'}</span>` : ''}
+    ${e.mood ? `<span style="font-size:12px">${e.mood}</span>` : ''}`;
+
+  // Text
+  document.getElementById('dp-text').innerHTML = e.body.split('\n').join('<br>');
+
+  // Hotel
+  const cats=[['overall','総合'],['clean','清潔さ'],['location','立地'],['service','サービス'],['value','コスパ']];
+  document.getElementById('dp-hotel').innerHTML = e.hotel&&e.hotel.name ? `
+    <div style="background:var(--amber-light);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:14px;border:1px solid #e8d98a">
+      <div style="font-size:13px;font-weight:500;margin-bottom:8px"><i class="ti ti-building"></i> ${e.hotel.name}</div>
+      ${cats.map(([k,l])=>e.hotel.ratings[k]?`<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:12px;color:var(--text2);width:58px">${l}</span><span style="color:var(--amber)">${starsDisplay(e.hotel.ratings[k])}</span><span style="font-size:12px;color:var(--text3)">${e.hotel.ratings[k]}/5</span></div>`:'').join('')}
+      ${e.hotel.memo?`<div style="font-size:13px;color:var(--text2);margin-top:6px">${e.hotel.memo}</div>`:''}
+    </div>` : '';
+
+  // Tags
+  document.getElementById('dp-tags').innerHTML = e.tags&&e.tags.length ? `<div style="margin-bottom:14px">${e.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>` : '';
+
+  // Reactions & Comments
+  document.getElementById('dp-reactions').innerHTML = reactionHTML(e.id, false);
+  document.getElementById('dp-comments').innerHTML = commentHTML(e.id);
+}
+
+
+
+// LIGHTBOX
+let lbPhotos=[], lbIndex=0;
+function openLightbox(photos, index){
+  lbPhotos=photos; lbIndex=index;
+  updateLightbox();
+  document.getElementById('lightbox').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function updateLightbox(){
+  document.getElementById('lightbox-img').src=lbPhotos[lbIndex];
+  document.getElementById('lb-counter').textContent=lbPhotos.length>1?`${lbIndex+1} / ${lbPhotos.length}`:'';
+  document.getElementById('lb-prev').style.display=lbPhotos.length>1&&lbIndex>0?'flex':'none';
+  document.getElementById('lb-next').style.display=lbPhotos.length>1&&lbIndex<lbPhotos.length-1?'flex':'none';
+}
+function lightboxNav(dir){
+  lbIndex=Math.max(0,Math.min(lbPhotos.length-1,lbIndex+dir));
+  updateLightbox();
+}
+function closeLightbox(){
+  document.getElementById('lightbox').style.display='none';
+  document.body.style.overflow='';
+}
+function closeLightboxBg(ev){
+  if(ev.target.id==='lightbox')closeLightbox();
+}
+
+function showToast(msg, emoji=''){
+  const t=document.getElementById('toast');
+  t.innerHTML=`<i class="ti ti-check" style="color:#4ade80;font-size:16px"></i> ${msg}`;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer=setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+// WISHLIST
+let wishlist=[], selectedWishCat='';
+
+function showWishForm(){
+  const f=document.getElementById('wish-form');
+  f.style.display=f.style.display==='none'?'flex':'none';
+  f.style.flexDirection='column';
+  if(f.style.display!=='none')document.getElementById('wish-input').focus();
+}
+function selectWishCat(btn,cat){
+  document.querySelectorAll('#wish-category-row .mood-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');selectedWishCat=cat;
+}
+async function saveWish(){
+  const text=document.getElementById('wish-input').value.trim();
+  if(!text)return;
+  const item={id:Date.now(),text,cat:selectedWishCat,createdAt:new Date().toISOString()};
+  wishlist.push(item);
+  if(window.fbSaveReservation){
+    // reuse Firebase with 'wishlist' collection via custom function
+  }
+  try{await window._fbSetWish(item);}catch(e){}
+  document.getElementById('wish-input').value='';
+  selectedWishCat='';
+  document.querySelectorAll('#wish-category-row .mood-btn').forEach(b=>b.classList.remove('active'));
+  renderWishlist();
+  showToast('追加しました！');
+}
+async function deleteWish(id){
+  wishlist=wishlist.filter(w=>w.id!==id);
+  try{await window._fbDeleteWish(id);}catch(e){}
+  renderWishlist();
+}
+function renderWishlist(){
+  const el=document.getElementById('wishlist');
+  if(!el)return;
+  if(!wishlist.length){
+    el.innerHTML=`<div class="empty-state">
+  <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:12px">
+    <circle cx="60" cy="60" r="56" fill="#fff5f0"/>
+    <path d="M60 30L65.5 48H85L69.5 59L75 77L60 66L45 77L50.5 59L35 48H54.5L60 30Z" fill="#f0b429" stroke="#e8945a" stroke-width="1.5" stroke-linejoin="round"/>
+    <circle cx="85" cy="38" r="10" fill="#e8945a"/>
+    <path d="M80 38H90M85 33V43" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+  <p>やりたいことを追加しましょう！</p>
+</div>`;
+    return;
+  }
+  el.innerHTML=wishlist.map(w=>`
+    <div class="wish-item">
+      <span class="wish-cat" style="font-size:24px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--accent-light);border-radius:12px">${w.cat?w.cat.split(' ')[0]:'✨'}</span>
+      <span class="wish-text">${w.text}${w.cat?`<br><span style="font-size:11px;color:var(--text3)">${w.cat}</span>`:''}</span>
+      <button class="wish-del" onclick="deleteWish(${w.id})"><i class="ti ti-trash"></i></button>
+    </div>`).join('');
+}
+
+// SAVINGS
+let deposits=[], savingsGoal=0;
+
+async function saveGoal(){
+  const val=parseInt(document.getElementById('savings-goal-input').value);
+  if(!val||val<=0){alert('金額を入力してください');return;}
+  savingsGoal=val;
+  try{await window._fbSetWish({id:'savings-goal',text:String(val),cat:'goal',createdAt:new Date().toISOString()});}catch(e){}
+  try{
+    const {getFirestore,doc,setDoc}=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+  }catch(e){}
+  if(window._fbSavingsGoal)await window._fbSavingsGoal(val);
+  showToast('目標を設定しました！');
+  renderSavings();
+}
+
+async function saveDeposit(){
+  const date=document.getElementById('deposit-date').value;
+  const amount=parseInt(document.getElementById('deposit-amount').value);
+  const memo=document.getElementById('deposit-memo').value;
+  if(!date||!amount||amount<=0){alert('日付と金額を入力してください');return;}
+  const item={id:Date.now(),date,amount,memo};
+  deposits.push(item);
+  deposits.sort((a,b)=>b.date.localeCompare(a.date));
+  if(window._fbSetDeposit)await window._fbSetDeposit(item);
+  document.getElementById('deposit-date').value=new Date(Date.now()+9*60*60*1000).toISOString().split('T')[0];
+  document.getElementById('deposit-amount').value='';
+  document.getElementById('deposit-memo').value='';
+  showToast('記録しました！');
+  renderSavings();
+}
+
+async function deleteDeposit(id){
+  if(!confirm('この記録を削除しますか？'))return;
+  deposits=deposits.filter(d=>d.id!==id);
+  if(window._fbDeleteDeposit)await window._fbDeleteDeposit(id);
+  renderSavings();
+}
+
+function renderSavings(){
+  const jstNow=new Date(Date.now()+9*60*60*1000);
+  const thisMonth=`${jstNow.getFullYear()}-${String(jstNow.getMonth()+1).padStart(2,'0')}`;
+  const thisMonthDeposits=deposits.filter(d=>d.date.startsWith(thisMonth));
+  const thisMonthTotal=thisMonthDeposits.reduce((s,d)=>s+d.amount,0);
+  const total=deposits.reduce((s,d)=>s+d.amount,0);
+
+  // Goal box
+  if(savingsGoal>0){
+    document.getElementById('savings-goal-input').value=savingsGoal;
+    const goalDisplay=document.getElementById('savings-goal-display');
+    goalDisplay.style.display='block';
+    const pct=Math.min(100,Math.round(thisMonthTotal/savingsGoal*100));
+    document.getElementById('savings-progress-bar').style.width=pct+'%';
+    document.getElementById('savings-progress-text').textContent=`¥${thisMonthTotal.toLocaleString()} / ¥${savingsGoal.toLocaleString()} (${pct}%)`;
+    document.getElementById('savings-progress-bar').style.background=pct>=100?'#22c55e':'var(--accent)';
+  }
+
+  // Summary
+  const summary=document.getElementById('savings-summary');
+  if(deposits.length){
+    summary.style.display='block';
+    document.getElementById('sum-this-month').textContent='¥'+thisMonthTotal.toLocaleString();
+    document.getElementById('sum-total').textContent='¥'+total.toLocaleString();
+    document.getElementById('sum-count').textContent=deposits.length+'回';
+  }
+
+  // List
+  const el=document.getElementById('deposit-list');
+  if(!deposits.length){el.innerHTML=`<div class="empty-state">
+  <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:12px">
+    <circle cx="60" cy="60" r="56" fill="#fff5f0"/>
+    <ellipse cx="60" cy="68" rx="26" ry="20" fill="#fde8d8" stroke="#e8945a" stroke-width="2"/>
+    <path d="M34 68C34 56.95 46.54 48 60 48C73.46 48 86 56.95 86 68" fill="#f0b429" stroke="#e8945a" stroke-width="2"/>
+    <circle cx="72" cy="62" r="4" fill="white"/>
+    <path d="M58 34V44M54 38H62" stroke="#3a9e8a" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M82 78L88 84" stroke="#e8945a" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+  <p>入金を記録しましょう！</p>
+</div>`;return;}
+  
+  // Group by month
+  const byMonth={};
+  deposits.forEach(d=>{
+    const m=d.date.slice(0,7);
+    if(!byMonth[m])byMonth[m]=[];
+    byMonth[m].push(d);
+  });
+  
+  el.innerHTML=Object.entries(byMonth).sort((a,b)=>b[0].localeCompare(a[0])).map(([month,items])=>{
+    const monthTotal=items.reduce((s,d)=>s+d.amount,0);
+    return `<div class="list-label">${month.replace('-','年')}月 — 合計 ¥${monthTotal.toLocaleString()}</div>`+
+    items.map(d=>`
+      <div class="wish-item">
+        <span class="wish-cat">💰</span>
+        <span class="wish-text">
+          <span style="font-size:16px;font-weight:600;color:var(--accent)">¥${d.amount.toLocaleString()}</span>
+          <br><span style="font-size:12px;color:var(--text3)">${d.date}${d.memo?' · '+d.memo:''}</span>
+        </span>
+        <button class="wish-del" onclick="deleteDeposit(${d.id})"><i class="ti ti-trash"></i></button>
+      </div>`).join('');
+  }).join('');
+}
+
+// REACTIONS & COMMENTS
+const REACTIONS = ['👍','❤️','😂','😲','😢','🔥'];
+
+async function toggleReaction(entryId, emoji, event){
+  event.stopPropagation();
+  const author = window._commentAuthor || selectedAuthor;
+  if(!author){ showToast('名前を選んでください'); return; }
+  if(!window._reactions) window._reactions = {};
+  if(!window._reactions[entryId]) window._reactions[entryId] = {};
+  const authors = [...(window._reactions[entryId][emoji] || [])];
+  const idx = authors.indexOf(author);
+  if(idx >= 0) authors.splice(idx, 1);
+  else authors.push(author);
+  window._reactions[entryId][emoji] = authors;
+  if(window._fbSetReaction) await window._fbSetReaction(entryId, emoji, authors);
+  renderEntries();
+  if(dpCurrentEntry && dpCurrentEntry.id === entryId) renderDetailPage(dpCurrentEntry);
+}
+
+function reactionHTML(entryId, compact=false){
+  const entryReactions = (window._reactions && window._reactions[entryId]) || {};
+  const activeReactions = REACTIONS.filter(e => (entryReactions[e]||[]).length > 0);
+  const _ca = window._commentAuthor||selectedAuthor; const reacted = _ca ? REACTIONS.filter(e => (entryReactions[e]||[]).includes(_ca)) : [];
+  
+  if(compact){
+    // カード表示：リアクション結果＋追加ボタン
+    const existing = activeReactions.map(e => 
+      `<button class="reaction-btn${reacted.includes(e)?' reacted':''}" onclick="toggleReaction(${entryId},'${e}',event)">${e} <span class="reaction-count">${entryReactions[e].length}</span></button>`
+    ).join('');
+    return `<div class="reaction-row">${existing}<button class="reaction-btn" onclick="showReactionPicker(${entryId},event)"><i class="ti ti-mood-smile" style="font-size:14px"></i></button></div>`;
+  } else {
+    // 詳細表示：全絵文字ピッカー
+    return `<div class="reaction-row">${REACTIONS.map(e => {
+      const count = (entryReactions[e]||[]).length;
+      const isReacted = reacted.includes(e);
+      return `<button class="reaction-btn${isReacted?' reacted':''}" onclick="toggleReaction(${entryId},'${e}',event)">${e}${count>0?` <span class="reaction-count">${count}</span>`:''}</button>`;
+    }).join('')}</div>`;
+  }
+}
+
+function showReactionPicker(entryId, event){
+  event.stopPropagation();
+  // simple: just open modal for full picker
+  const e = entries.find(x => x.id === entryId);
+  if(e) openEntryModal(entryId);
+}
+
+function commentHTML(entryId){
+  const comments = (window._comments && window._comments[entryId]) || [];
+  const commentsHTML = comments.map(c => {
+    const isInaba = c.author === 'inaba';
+    return `<div class="comment-item">
+      <div class="comment-avatar" style="background:${isInaba?'#2d5a3d':'#8b5e3c'}">${isInaba?'I':'T'}</div>
+      <div class="comment-bubble">
+        <div class="comment-author" style="color:${isInaba?'#2d5a3d':'#8b5e3c'}">${isInaba?'Inaba':'Tamura'}</div>
+        <div class="comment-text">${c.text}</div>
+        <div class="comment-time">${c.createdAt.slice(0,16).replace('T',' ')}</div>
+      </div>
+    </div>`;
+  }).join('');
+  const ca = window._commentAuthor||selectedAuthor||'';
+  return `<div class="comment-section">
+    ${comments.length?commentsHTML:'<div style="font-size:12px;color:var(--text3);margin-bottom:10px">コメントはまだありません</div>'}
+    <div style="display:flex;gap:6px;margin-bottom:8px">
+      <button onclick="setCommentAuthor('inaba',${entryId})" style="flex:1;padding:7px;border-radius:99px;border:2px solid ${ca==='inaba'?'#2d5a3d':'var(--border)'};background:${ca==='inaba'?'#e8f0eb':'none'};color:${ca==='inaba'?'#2d5a3d':'var(--text2)'};font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px">
+🙍‍♂️ Inaba</button>
+      <button onclick="setCommentAuthor('tamura',${entryId})" style="flex:1;padding:7px;border-radius:99px;border:2px solid ${ca==='tamura'?'#8b5e3c':'var(--border)'};background:${ca==='tamura'?'#f5ede5':'none'};color:${ca==='tamura'?'#8b5e3c':'var(--text2)'};font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px">
+🙎‍♀️ Tamura</button>
+    </div>
+    <div class="comment-input-row">
+      <input type="text" id="comment-input-${entryId}" placeholder="${ca?'コメントを書く...':'名前を選んでください'}" onkeydown="if(event.key==='Enter')submitComment(${entryId})">
+      <button class="comment-send" onclick="submitComment(${entryId})"><i class="ti ti-send"></i></button>
+    </div>
+  </div>`;
+}
+
+function setCommentAuthor(author, entryId){
+  window._commentAuthor = author;
+  selectedAuthor = author;
+  document.querySelectorAll('.author-btn').forEach(b=>b.className='author-btn');
+  const btn = document.getElementById('author-'+author);
+  if(btn) btn.className='author-btn active-'+author;
+  if(dpCurrentEntry && dpCurrentEntry.id === entryId) renderDetailPage(dpCurrentEntry);
+  setTimeout(()=>{ const i=document.getElementById('comment-input-'+entryId); if(i)i.focus(); },50);
+}
+
+async function submitComment(entryId){
+  const author = window._commentAuthor || selectedAuthor;
+  if(!author){ showToast('名前を選んでください'); return; }
+  const input = document.getElementById(`comment-input-${entryId}`);
+  const text = input ? input.value.trim() : '';
+  if(!text) return;
+  const comment = { id: Date.now(), entryId, author, text, createdAt: new Date(Date.now()+9*60*60*1000).toISOString() };
+  if(!window._comments) window._comments = {};
+  if(!window._comments[entryId]) window._comments[entryId] = [];
+  window._comments[entryId].push(comment);
+  if(window._fbSetComment) await window._fbSetComment(comment);
+  input.value = '';
+  if(dpCurrentEntry && dpCurrentEntry.id === entryId) renderDetailPage(dpCurrentEntry);
+}
+
+// TABS
+function switchTab(tab){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${tab}"]`).classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
+  if(tab==='entries'){renderEntries();if(currentView==='cal')renderCalendar();}
+  if(tab==='wishlist')renderWishlist();
+  if(tab==='savings')renderSavings();
+  if(tab==='reservations')renderReservations();
+  if(tab==='export')refreshExportSelects();
+}
+
+// INIT
+initStars();
+document.getElementById('f-date').value=new Date(Date.now()+9*60*60*1000).toISOString().split('T')[0];
+
+// データはFirebaseに保存済み
+
+// Show loading state until Firebase connects
+document.getElementById('entries-list').innerHTML='<div class="empty-state"><i class="ti ti-loader" style="animation:spin 1s linear infinite"></i><p>データを読み込み中...</p></div>';
+document.getElementById('reservations-list').innerHTML='<div class="empty-state"><i class="ti ti-loader" style="animation:spin 1s linear infinite"></i><p>データを読み込み中...</p></div>';
+</script>
+</body>
+</html>
